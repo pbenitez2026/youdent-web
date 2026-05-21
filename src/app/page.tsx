@@ -720,14 +720,14 @@ useEffect(() => {
       `}</style>
 
       <header className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-6 md:py-4">
           <Image
             src="/logo_youdent_transparente.png"
             alt="YouDent"
             width={170}
             height={80}
             priority
-            className="h-auto w-[135px]"
+            className="h-auto w-[116px] md:w-[135px]"
           />
 
           <div className="hidden items-center gap-9 text-sm font-bold text-[#102A5E] md:flex">
@@ -769,12 +769,12 @@ useEffect(() => {
 
       <section
         id="inicio"
-        className="relative overflow-hidden bg-transparent px-6 pb-10 pt-32"
+        className="relative overflow-hidden bg-transparent px-4 pb-8 pt-28 md:px-6 md:pb-10 md:pt-32"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#F4FAFC] to-white" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="relative min-h-[500px] overflow-hidden rounded-[2.5rem] shadow-2xl shadow-gray-200">
+          <div className="relative min-h-[560px] overflow-hidden rounded-[1.9rem] shadow-2xl shadow-gray-200 md:min-h-[500px] md:rounded-[2.5rem]">
             {heroImages.map((image, index) => (
               <Image
                 key={image}
@@ -782,7 +782,7 @@ useEffect(() => {
                 alt="Especialista YouDent"
                 fill
                 priority={index === 0}
-                className={`object-cover object-center transition-all duration-1000 ease-in-out ${
+                className={`object-cover object-[62%_center] transition-all duration-1000 ease-in-out md:object-center ${
                   index === currentImage
                     ? "scale-100 opacity-100"
                     : "scale-[1.015] opacity-0"
@@ -796,12 +796,12 @@ useEffect(() => {
 
             <div className="absolute inset-0 z-[1] bg-[#102A5E]/[0.10]" />
 
-            <div className="absolute inset-y-0 left-0 z-[2] w-[48%] bg-gradient-to-r from-[#102A5E]/45 via-[#102A5E]/20 to-transparent backdrop-blur-[1px]" />
+            <div className="absolute inset-y-0 left-0 z-[2] hidden w-[48%] bg-gradient-to-r from-[#102A5E]/45 via-[#102A5E]/20 to-transparent backdrop-blur-[1px] md:block" />
 
             {currentTeamInfo && (
               <div
                 key={heroImages[currentImage]}
-                className="absolute left-[40%] top-[10%] z-20 max-w-[255px] text-left"
+                className="absolute left-[40%] top-[10%] z-20 hidden max-w-[255px] text-left md:block"
                 style={{
                   animation: "teamTextIn 720ms ease-out forwards",
                 }}
@@ -835,7 +835,7 @@ useEffect(() => {
             )}
 
             <div
-              className={`absolute left-8 top-[44%] z-20 h-fit w-[33%] -translate-y-1/2 rounded-[1.7rem] border border-white/25 bg-white/16 px-6 py-8 text-white shadow-2xl shadow-[#102A5E]/18 backdrop-blur-2xl transition-all duration-700 ease-out ${
+              className={`absolute inset-x-4 bottom-5 z-20 h-fit rounded-[1.45rem] border border-white/25 bg-[#102A5E]/18 px-5 py-5 text-white shadow-2xl shadow-[#102A5E]/18 backdrop-blur-2xl transition-all duration-700 ease-out md:bottom-auto md:left-8 md:right-auto md:top-[44%] md:w-[33%] md:-translate-y-1/2 md:rounded-[1.7rem] md:bg-white/16 md:px-6 md:py-8 ${
                 showGlass
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-6 opacity-0"
@@ -845,13 +845,13 @@ useEffect(() => {
                 Tu sonrisa, nuestra prioridad
               </p>
 
-              <h1 className="text-xl font-black leading-none tracking-tight drop-shadow-lg md:text-center">
+              <h1 className="text-lg font-black leading-tight tracking-tight drop-shadow-lg md:text-center md:text-xl">
                 Odontología estética y funcional con atención personalizada
               </h1>
 
               <div className="mt-6 h-1 w-24 rounded-full bg-[#6FA8B8]" />
 
-              <p className="mt-3 text-center leading-normal text-white/95">
+              <p className="mt-3 text-center text-sm leading-relaxed text-white/95 md:text-base md:leading-normal">
                 Odontología moderna con atención cercana, diagnóstico preciso y
                 enfoque estético.
               </p>
@@ -859,7 +859,7 @@ useEffect(() => {
               <a
                 href={googleMapsUrl}
                 target="_blank"
-                className="mt-3 inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-sm font-black text-[#102A5E] shadow-xl shadow-[#102A5E]/10 transition hover:scale-[1.02]"
+                className="mt-3 hidden w-fit items-center gap-3 rounded-full px-5 py-3 text-sm font-black text-[#102A5E] shadow-xl shadow-[#102A5E]/10 transition hover:scale-[1.02] sm:inline-flex"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md">
                   <svg viewBox="0 0 24 24" className="h-5 w-5">
@@ -886,11 +886,11 @@ useEffect(() => {
                 <span className="tracking-[0.08em] text-[#F4A300]">★★★★★</span>
               </a>
 
-              <div className="mt-4 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row md:gap-4">
                 <a
                   href={whatsappUrl}
                   target="_blank"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#102A5E] px-6 py-3.5 text-center text-[0.82rem] font-black text-white shadow-xl transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#102A5E] px-6 py-3.5 text-center text-[0.82rem] font-black text-white shadow-xl transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)] sm:w-auto"
                 >
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
                     <WhatsAppIcon className="h-5 w-5" />
@@ -900,7 +900,7 @@ useEffect(() => {
 
                 <a
                   href="#tratamientos"
-                  className="rounded-full border border-white/30 bg-white/55 px-7 py-4 text-center text-base font-black text-[#102A5E] shadow-xl backdrop-blur-xl transition hover:scale-105 hover:text-[#6FA8B8]"
+                  className="w-full rounded-full border border-white/30 bg-white/55 px-7 py-4 text-center text-sm font-black text-[#102A5E] shadow-xl backdrop-blur-xl transition hover:scale-105 hover:text-[#6FA8B8] sm:w-auto md:text-base"
                 >
                   Ver servicios
                 </a>
@@ -908,12 +908,12 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="relative z-30 mx-auto -mt-10 px-6">
-            <div className="grid gap-5 rounded-[2.2rem] border border-white/70 bg-white/80 p-4 shadow-[0_25px_80px_rgba(15,23,42,0.10)] backdrop-blur-2xl md:grid-cols-3">
+          <div className="relative z-30 mx-auto -mt-6 px-0 md:-mt-10 md:px-6">
+            <div className="grid gap-3 rounded-[1.8rem] border border-white/70 bg-white/85 p-3 shadow-[0_25px_80px_rgba(15,23,42,0.10)] backdrop-blur-2xl md:grid-cols-3 md:gap-5 md:rounded-[2.2rem] md:p-4">
               {visitInfo.map((item) => (
                 <article
                   key={item.title}
-                  className="group flex flex-col gap-5 rounded-[1.8rem] border border-white/70 bg-gradient-to-br from-white via-[#F8FBFC] to-[#EEF7FA] px-8 py-6 shadow-[0_15px_45px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(15,23,42,0.12)]"
+                  className="group flex flex-col gap-4 rounded-[1.5rem] border border-white/70 bg-gradient-to-br from-white via-[#F8FBFC] to-[#EEF7FA] px-5 py-5 shadow-[0_15px_45px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(15,23,42,0.12)] md:gap-5 md:rounded-[1.8rem] md:px-8 md:py-6"
                 >
                   <div className="mb-1 flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#D8EAF0] bg-white text-[#6EAFC0] shadow-sm">
@@ -944,7 +944,7 @@ useEffect(() => {
       <section
         id="diagnostico"
         ref={introRef}
-        className="relative -mt-10 overflow-hidden bg-transparent px-6 pt-24 pb-[4.5rem] md:pb-20"
+        className="relative overflow-hidden bg-transparent px-4 pb-14 pt-16 md:-mt-10 md:px-6 md:pb-20 md:pt-24"
       >
         <div className="absolute -top-20 inset-x-0 bottom-0 bg-[radial-gradient(circle_at_50%_10%,rgba(41,193,213,0.08),transparent_42%),radial-gradient(circle_at_80%_30%,rgba(107,53,168,0.08),transparent_35%)]" />
 
@@ -959,7 +959,7 @@ useEffect(() => {
             Atención inicial y planes
           </p>
 
-          <h2 className="mx-auto mt-5 max-w-4xl text-[clamp(2.6rem,4.6vw,4.8rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E]">
+          <h2 className="mx-auto mt-5 max-w-4xl text-[clamp(2rem,10vw,4.8rem)] font-black leading-[1.03] tracking-[-0.05em] text-[#102A5E]">
             <span
               className={`block transition-all delay-200 duration-[1500ms] ease-out ${
                 showIntro
@@ -1083,7 +1083,7 @@ useEffect(() => {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="group relative h-[440px] min-w-[78vw] snap-center overflow-hidden rounded-[2.4rem] bg-[#102A5E] shadow-[0_24px_80px_rgba(15,23,42,0.18)] ring-1 ring-white/50 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_36px_110px_rgba(15,23,42,0.24)] md:min-w-[430px]"
+                className="group relative h-[390px] min-w-[82vw] snap-center overflow-hidden rounded-[2rem] bg-[#102A5E] shadow-[0_24px_80px_rgba(15,23,42,0.18)] ring-1 ring-white/50 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_36px_110px_rgba(15,23,42,0.24)] md:h-[440px] md:min-w-[430px] md:rounded-[2.4rem]"
               >
                 <Image
                   src={service.image}
@@ -1128,12 +1128,12 @@ useEffect(() => {
         </div>
       </section>
 
-      <section id="nosotros" ref={clinicalRef} className="relative overflow-hidden bg-transparent px-6 py-[4.5rem] md:py-20">
+      <section id="nosotros" ref={clinicalRef} className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(41,193,213,0.08),transparent_34%),radial-gradient(circle_at_92%_18%,rgba(107,53,168,0.07),transparent_30%)]" />
 
-        <div className="relative mx-auto grid max-w-7xl items-start gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className={`space-y-8 transition-all duration-[1400ms] ease-out ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
-            <div className="relative min-h-[650px]">
+        <div className="relative mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <div className={`order-2 space-y-6 transition-all duration-[1400ms] ease-out lg:order-1 lg:space-y-8 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
+            <div className="relative hidden min-h-[650px] md:block">
               <div className="absolute left-0 top-8 h-[520px] w-[68%] overflow-hidden rounded-[2.6rem] shadow-[0_32px_90px_rgba(15,23,42,0.16)] ring-1 ring-white/70">
                 <Image
                   src="/images/verito.jpg"
@@ -1174,7 +1174,7 @@ useEffect(() => {
               <div className="absolute -right-8 bottom-8 h-44 w-44 rounded-full bg-[#6B35A8]/14 blur-3xl" />
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.30),transparent_35%,transparent_70%,rgba(255,255,255,0.14))]" />
 
-              <div className="relative h-[620px] overflow-hidden rounded-[2.2rem] bg-[#071633]">
+              <div className="relative h-[560px] overflow-hidden rounded-[2rem] bg-[#071633] md:h-[620px] md:rounded-[2.2rem]">
   
  <div className="relative mx-auto flex h-full items-start justify-center px-6 pt-8 pb-4">
 
@@ -1193,7 +1193,7 @@ useEffect(() => {
       loop
       playsInline
       preload="auto"
-      className="h-[560px] w-auto object-contain"
+      className="h-[500px] w-auto object-contain md:h-[560px]"
     >
       <source src="/videos/familia.mp4" type="video/mp4" />
     </video>
@@ -1225,12 +1225,12 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className={`transition-all delay-200 duration-[1400ms] ease-out ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
+          <div className={`order-1 transition-all delay-200 duration-[1400ms] ease-out lg:order-2 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-[#6FA8B8]">
               Atención clínica real
             </p>
 
-            <h2 className="mt-5 max-w-2xl text-[clamp(2.7rem,4.7vw,5rem)] font-black leading-[1.02] tracking-[-0.055em] text-[#102A5E]">
+            <h2 className="mt-5 max-w-2xl text-[clamp(2.05rem,10vw,5rem)] font-black leading-[1.03] tracking-[-0.055em] text-[#102A5E]">
               Diagnóstico claro,
               planeación real
               y atención cercana.
@@ -1256,7 +1256,7 @@ useEffect(() => {
             </div>
 
             <div className="mt-10 overflow-hidden rounded-[2.3rem] bg-[#102A5E] p-3 shadow-[0_28px_90px_rgba(15,23,42,0.18)]">
-              <div className="relative h-[360px] overflow-hidden rounded-[1.8rem]">
+              <div className="relative h-[260px] overflow-hidden rounded-[1.5rem] md:h-[360px] md:rounded-[1.8rem]">
                 <Image
                   src="/images/cambio1.jpg"
                   alt="Antes de restauración dental"
@@ -1291,7 +1291,7 @@ useEffect(() => {
                   <p className="text-xs font-black uppercase tracking-[0.28em] text-[#29C1D5]">
                     Restauración conservadora
                   </p>
-                  <h3 className="mt-2 max-w-md text-3xl font-black leading-tight tracking-[-0.04em] text-white">
+                  <h3 className="mt-2 max-w-md text-2xl font-black leading-tight tracking-[-0.04em] text-white md:text-3xl">
                     Función, anatomía y estética natural.
                   </h3>
                 </div>
@@ -1310,7 +1310,7 @@ useEffect(() => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {clinicalSequence.map((item) => (
                   <article
                     key={item.title}
@@ -1349,7 +1349,7 @@ useEffect(() => {
       </section>
 
 
-      <section id="escaneo-3d" ref={scannerRef} className="relative overflow-hidden bg-transparent px-6 py-14 md:py-[4.5rem]">
+      <section id="escaneo-3d" ref={scannerRef} className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_22%,rgba(41,193,213,0.07),transparent_28%),radial-gradient(circle_at_88%_12%,rgba(107,53,168,0.055),transparent_30%)]" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -1389,7 +1389,7 @@ useEffect(() => {
               </a>
             </div>
 
-            <div className={`relative min-h-[420px] overflow-hidden rounded-[2.6rem] bg-[#102A5E] shadow-[0_35px_110px_rgba(15,23,42,0.18)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[455px] ${showScanner ? "translate-x-0 scale-100 opacity-100" : "translate-x-8 scale-[0.98] opacity-0"}`}>
+            <div className={`relative min-h-[300px] overflow-hidden rounded-[2rem] bg-[#102A5E] shadow-[0_35px_110px_rgba(15,23,42,0.18)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[455px] md:rounded-[2.6rem] ${showScanner ? "translate-x-0 scale-100 opacity-100" : "translate-x-8 scale-[0.98] opacity-0"}`}>
   <Image
     src="/images/scanner3d.jpg"
     alt="Escaneo intraoral 3D"
@@ -1409,7 +1409,7 @@ useEffect(() => {
         </div>
       </section>
 
-      <section id="resenas" className="relative overflow-hidden bg-transparent px-6 py-14 md:py-[4.5rem]">
+      <section id="resenas" className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_30%,rgba(41,193,213,0.10),transparent_30%),radial-gradient(circle_at_84%_50%,rgba(107,53,168,0.06),transparent_34%)]" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -1437,7 +1437,7 @@ useEffect(() => {
               {[...googleReviews, ...googleReviews].map((review, index) => (
 <article
   key={`${review.name}-${index}`}
-  className="group relative flex min-h-[265px] w-[400px] flex-col justify-between overflow-hidden rounded-[2.2rem] border border-white/80 bg-white/72 p-7 shadow-[0_26px_80px_rgba(16,42,94,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/90 hover:shadow-[0_36px_100px_rgba(16,42,94,0.16)]"
+  className="group relative flex min-h-[255px] w-[82vw] max-w-[400px] flex-col justify-between overflow-hidden rounded-[1.8rem] border border-white/80 bg-white/72 p-6 shadow-[0_26px_80px_rgba(16,42,94,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/90 hover:shadow-[0_36px_100px_rgba(16,42,94,0.16)] md:min-h-[265px] md:w-[400px] md:rounded-[2.2rem] md:p-7"
 >
   <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#29C1D5]/12 blur-3xl" />
   <div className="absolute -bottom-12 left-10 h-36 w-36 rounded-full bg-[#6B35A8]/10 blur-3xl" />
@@ -1489,7 +1489,7 @@ useEffect(() => {
 <section
   id="ubicacion"
   ref={locationRef}
-  className="relative overflow-hidden bg-transparent px-6 py-14 md:py-[4.5rem]"
+  className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
 >
   {/* glow fondo */}
   <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(41,193,213,0.08),transparent_30%),radial-gradient(circle_at_88%_22%,rgba(107,53,168,0.05),transparent_32%)]" />
@@ -1672,7 +1672,7 @@ useEffect(() => {
         href={whatsappUrl}
         target="_blank"
         aria-label="Agendar por WhatsApp"
-        className="fixed bottom-6 right-6 z-[60] flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] shadow-2xl transition hover:scale-110"
+        className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-2xl transition hover:scale-110 md:bottom-6 md:right-6 md:h-16 md:w-16"
       >
         <WhatsAppIcon />
       </a>
