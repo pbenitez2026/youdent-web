@@ -825,7 +825,7 @@ useEffect(() => {
                     alt="Especialista YouDent"
                     fill
                     priority={index === 0}
-                    className={`object-cover object-[58%_center] transition-all duration-1000 ease-in-out ${
+                    className={`object-cover object-[78%_center] transition-all duration-1000 ease-in-out ${
                       index === currentImage
                         ? "scale-100 opacity-100"
                         : "scale-[1.015] opacity-0"
