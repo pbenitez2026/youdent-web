@@ -34,7 +34,7 @@ const teamInfoByImage: Record<
   { specialty: string; description: string; name: string }
 > = {
   "/images/team_2.jpg": {
-    specialty: "Periodoncia e  Implantología",
+    specialty: "Periodoncia e Implantología",
     description: "Salud, estética y cuidado de encías",
     name: "— Dra. Sandra Camacho",
   },
@@ -1146,7 +1146,7 @@ useEffect(() => {
 
               <div className="absolute right-0 top-0 h-[280px] w-[45%] overflow-hidden rounded-[2.2rem] shadow-[0_24px_70px_rgba(15,23,42,0.14)] ring-[10px] ring-white">
                 <Image
-                  src="/images/perlita.jpg"
+                  src="/images/perlita.JPG"
                   alt="Diagnóstico y planeación dental"
                   fill
                   sizes="(max-width: 1024px) 45vw, 330px"
@@ -1156,7 +1156,7 @@ useEffect(() => {
 
               <div className="absolute bottom-0 right-8 h-[260px] w-[54%] overflow-hidden rounded-[2.2rem] shadow-[0_24px_70px_rgba(15,23,42,0.14)] ring-[10px] ring-white">
                 <Image
-                  src="/images/marquito.jpg"
+                  src="/images/marquito.JPG"
                   alt="Atención especializada YouDent"
                   fill
                   sizes="(max-width: 1024px) 55vw, 410px"
