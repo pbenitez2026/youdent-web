@@ -1271,15 +1271,17 @@ useEffect(() => {
   <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-white/90 bg-[#071633] shadow-[0_40px_120px_rgba(15,23,42,0.30)]">
 
     <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      className="h-[500px] w-auto object-contain md:h-[560px]"
-    >
-      <source src="/videos/familia.mp4" type="video/mp4" />
-    </video>
+  autoPlay
+  muted
+  loop
+  playsInline
+  webkit-playsinline="true"
+  preload="metadata"
+  controls={false}
+  className="h-[500px] w-auto object-contain md:h-[560px]"
+>
+  <source src="/videos/familia.mp4" type="video/mp4" />
+</video>
 
     {/* OVERLAY */}
     <div className="absolute inset-0 bg-gradient-to-t from-[#071A42]/80 via-transparent to-transparent" />
