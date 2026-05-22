@@ -1,8 +1,11 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "YouDent",
+  title: "Clínica YouDent",
   description: "Odontología estética y profesional en CDMX",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
