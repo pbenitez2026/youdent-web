@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Clínica YouDent",
-  description: "Odontología estética y profesional en CDMX",
+  description: "Clínica dental en CDMX con atención cercana, diagnóstico claro y tratamientos personalizados en estética dental, implantes, ortodoncia y endodoncia.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
