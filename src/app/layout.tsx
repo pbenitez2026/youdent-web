@@ -5,6 +5,8 @@ export const metadata = {
   description: "Odontología estética y profesional en CDMX",
   icons: {
     icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
