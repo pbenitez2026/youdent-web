@@ -20,6 +20,19 @@ const whatsappUrl =
 
 const googleMapsUrl = "https://maps.app.goo.gl/ALvf7W4xujUBQLzs9";
 
+
+const handleWhatsAppClick = () => {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "contact", {
+      event_category: "engagement",
+      event_label: "whatsapp_click",
+    });
+  }
+  if (typeof window !== "undefined" && (window as any).fbq) {
+    (window as any).fbq("track", "Contact");
+  }
+  window.open(whatsappUrl, "_blank");
+};
 const heroImages = [
   "/images/team_1.jpg",
   "/images/team_2.jpg",
@@ -89,6 +102,7 @@ const visitInfo = [
     ],
   },
 ];
+
 
 const processSteps = [
   {
@@ -260,6 +274,7 @@ const diagnosticPoints = [
   },
 ];
 
+
 function ToothDiagnosticVisual() {
   return (
     <div className="relative mx-auto flex h-[360px] w-full max-w-[420px] items-center justify-center md:h-[430px]">
@@ -285,14 +300,7 @@ function ToothDiagnosticVisual() {
         aria-hidden="true"
       >
         <defs>
-          <linearGradient
-            id="toothBody"
-            x1="62"
-            y1="28"
-            x2="195"
-            y2="276"
-            gradientUnits="userSpaceOnUse"
-          >
+          <linearGradient id="toothBody" x1="62" y1="28" x2="195" y2="276" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="#FFFFFF" />
             <stop offset="0.48" stopColor="#F4FCFD" />
             <stop offset="1" stopColor="#DDEFF5" />
@@ -354,13 +362,10 @@ function ToothDiagnosticVisual() {
   );
 }
 
+
 function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`${className} fill-none`}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" className={`${className} fill-none`} aria-hidden="true">
       <rect
         x="4"
         y="4"
@@ -370,7 +375,13 @@ function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
         stroke="currentColor"
         strokeWidth="1.8"
       />
-      <circle cx="12" cy="12" r="3.4" stroke="currentColor" strokeWidth="1.8" />
+      <circle
+        cx="12"
+        cy="12"
+        r="3.4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
       <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
     </svg>
   );
@@ -378,11 +389,7 @@ function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 function FacebookIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`${className} fill-current`}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
       <path d="M14.2 8.2V6.8c0-.7.5-.9.9-.9h2V2.4L14.4 2.4c-3.1 0-4.6 1.9-4.6 4.5v1.3H7.2v3.7h2.6V22h4.1V11.9h2.9l.5-3.7h-3.1Z" />
     </svg>
   );
@@ -402,8 +409,8 @@ export default function Home() {
   const [showGlass, setShowGlass] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
   const introRef = useRef<HTMLElement | null>(null);
-  const [showServices, setShowServices] = useState(false);
-  const servicesHeaderRef = useRef<HTMLDivElement | null>(null);
+const [showServices, setShowServices] = useState(false);
+const servicesHeaderRef = useRef<HTMLDivElement | null>(null);
   const [showClinical, setShowClinical] = useState(false);
   const clinicalRef = useRef<HTMLElement | null>(null);
   const [showScanner, setShowScanner] = useState(false);
@@ -434,32 +441,32 @@ export default function Home() {
 
     return () => window.clearInterval(interval);
   }, [startCarousel]);
-  const servicesRef = useRef<HTMLDivElement | null>(null);
+const servicesRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const container = servicesRef.current;
+useEffect(() => {
+  const container = servicesRef.current;
 
-    if (!container) return;
+  if (!container) return;
 
-    let animationFrame: number;
+  let animationFrame: number;
 
-    const autoScroll = () => {
-      container.scrollLeft += 0.45;
+  const autoScroll = () => {
+    container.scrollLeft += 0.45;
 
-      if (
-        container.scrollLeft + container.clientWidth >=
-        container.scrollWidth - 1
-      ) {
-        container.scrollLeft = 0;
-      }
-
-      animationFrame = requestAnimationFrame(autoScroll);
-    };
+    if (
+      container.scrollLeft + container.clientWidth >=
+      container.scrollWidth - 1
+    ) {
+      container.scrollLeft = 0;
+    }
 
     animationFrame = requestAnimationFrame(autoScroll);
+  };
 
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  animationFrame = requestAnimationFrame(autoScroll);
+
+  return () => cancelAnimationFrame(animationFrame);
+}, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -468,7 +475,7 @@ export default function Home() {
           observer.disconnect();
         }
       },
-      { threshold: 0.22 },
+      { threshold: 0.22 }
     );
 
     if (introRef.current) {
@@ -477,77 +484,77 @@ export default function Home() {
 
     return () => observer.disconnect();
   }, []);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowServices(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowServices(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
 
-    if (servicesHeaderRef.current) {
-      observer.observe(servicesHeaderRef.current);
-    }
+  if (servicesHeaderRef.current) {
+    observer.observe(servicesHeaderRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowClinical(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowClinical(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.18 }
+  );
 
-    if (clinicalRef.current) {
-      observer.observe(clinicalRef.current);
-    }
+  if (clinicalRef.current) {
+    observer.observe(clinicalRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowScanner(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.22 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowScanner(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.22 }
+  );
 
-    if (scannerRef.current) {
-      observer.observe(scannerRef.current);
-    }
+  if (scannerRef.current) {
+    observer.observe(scannerRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowLocation(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowLocation(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.18 }
+  );
 
-    if (locationRef.current) {
-      observer.observe(locationRef.current);
-    }
+  if (locationRef.current) {
+    observer.observe(locationRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
   const currentTeamInfo = teamInfoByImage[heroImages[currentImage]];
 
   return (
@@ -559,153 +566,151 @@ export default function Home() {
           font-family: "Manrope", Arial, sans-serif;
         }
         @keyframes scanLine {
-          0%,
-          100% {
-            left: 18%;
-            opacity: 0.25;
-          }
+  0%, 100% {
+    left: 18%;
+    opacity: 0.25;
+  }
 
-          50% {
-            left: 78%;
-            opacity: 1;
-          }
-        }
+  50% {
+    left: 78%;
+    opacity: 1;
+  }
+}
 
-        @keyframes scanGlow {
-          0%,
-          100% {
-            opacity: 0.25;
-            transform: scale(1);
-          }
+@keyframes scanGlow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
 
-          50% {
-            opacity: 0.75;
-            transform: scale(1.08);
-          }
-        }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
 
-        @keyframes gridMove {
-          from {
-            background-position: 0 0;
-          }
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
 
-          to {
-            background-position: 84px 84px;
-          }
-        }
-        @keyframes serviceIntro {
-          from {
-            opacity: 0;
-            transform: translateY(18px);
-            filter: blur(6px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-          }
-        }
-        @keyframes compareClip {
-          0%,
-          100% {
-            clip-path: inset(0 0 0 66%);
-          }
-          50% {
-            clip-path: inset(0 0 0 28%);
-          }
-        }
+  to {
+    background-position: 84px 84px;
+  }
+}  
+@keyframes serviceIntro {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@keyframes compareClip {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 66%);
+  }
+  50% {
+    clip-path: inset(0 0 0 28%);
+  }
+}
 
-        @keyframes compareHandle {
-          0%,
-          100% {
-            left: 66%;
-          }
-          50% {
-            left: 28%;
-          }
-        }
+@keyframes compareHandle {
+  0%,
+  100% {
+    left: 66%;
+  }
+  50% {
+    left: 28%;
+  }
+}
 
-        .compare-after {
-          animation: compareClip 6.5s ease-in-out infinite;
-        }
+.compare-after {
+  animation: compareClip 6.5s ease-in-out infinite;
+}
 
-        .compare-handle {
-          animation: compareHandle 6.5s ease-in-out infinite;
-        }
+.compare-handle {
+  animation: compareHandle 6.5s ease-in-out infinite;
+}
 
-        @keyframes toothFloat {
-          0%,
-          100% {
-            transform: translateY(0) rotate(-1deg);
-          }
-          50% {
-            transform: translateY(-14px) rotate(1deg);
-          }
-        }
+@keyframes toothFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1deg);
+  }
+}
 
-        @keyframes orbit {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-        @keyframes diagnosticPulse {
-          0%,
-          100% {
-            opacity: 0.45;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.08);
-          }
-        }
+@keyframes diagnosticPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
 
-        @keyframes scannerFloat {
-          0%,
-          100% {
-            transform: translateY(0) rotate(-6deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(-2deg);
-          }
-        }
+@keyframes scannerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
 
-        @keyframes scannerSweep {
-          0%,
-          100% {
-            transform: translateX(-42%) scaleX(0.72);
-            opacity: 0.45;
-          }
-          50% {
-            transform: translateX(42%) scaleX(1);
-            opacity: 1;
-          }
-        }
+@keyframes scannerSweep {
+  0%,
+  100% {
+    transform: translateX(-42%) scaleX(0.72);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(42%) scaleX(1);
+    opacity: 1;
+  }
+}
 
-        @keyframes softPulse {
-          0%,
-          100% {
-            opacity: 0.45;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.95;
-            transform: scale(1.04);
-          }
-        }
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
 
-        @keyframes reviewsTrack {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
-        }
+@keyframes reviewsTrack {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
         @keyframes teamTextIn {
           from {
@@ -765,8 +770,8 @@ export default function Home() {
           </a>
 
           <a
-            onClick={handleWhatsAppClick}
-
+            href={whatsappUrl}
+            target="_blank"
             className="hidden items-center gap-2 rounded-full bg-[#102A5E] px-6 py-3 text-sm font-black text-white shadow-lg transition-all hover:scale-105 sm:inline-flex hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
           >
             <WhatsAppIcon className="h-5 w-5" />
@@ -795,24 +800,19 @@ export default function Home() {
                 </h1>
 
                 <p className="mt-4 text-[0.98rem] font-light leading-[1.75] text-slate-600">
-                  Diagnóstico claro, trato cercano y planeación para atender tu
-                  caso con confianza.
+                  Diagnóstico claro, trato cercano y planeación para atender tu caso con confianza.
                 </p>
 
                 <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-[#DCEAF0] bg-white/85 px-4 py-2 shadow-sm">
-                  <span className="text-sm font-black text-[#102A5E]">
-                    Google
-                  </span>
+                  <span className="text-sm font-black text-[#102A5E]">Google</span>
                   <span className="text-sm font-black text-[#F4A300]">4.9</span>
-                  <span className="text-xs tracking-[0.08em] text-[#F4A300]">
-                    ★★★★★
-                  </span>
+                  <span className="text-xs tracking-[0.08em] text-[#F4A300]">★★★★★</span>
                 </div>
 
                 <div className="mt-5 grid gap-3">
                   <a
-                    onClick={handleWhatsAppClick}
-
+                    href={whatsappUrl}
+                    target="_blank"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#102A5E] px-6 py-4 text-center text-sm font-black text-white shadow-xl transition-all hover:bg-[#29C1D5]"
                   >
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
@@ -947,13 +947,13 @@ export default function Home() {
                 <div className="mt-6 h-1 w-24 rounded-full bg-[#6FA8B8]" />
 
                 <p className="mt-3 text-center leading-normal text-white/95">
-                  Odontología moderna con atención cercana, diagnóstico preciso
-                  y enfoque estético.
+                  Odontología moderna con atención cercana, diagnóstico preciso y
+                  enfoque estético.
                 </p>
 
                 <a
                   href={googleMapsUrl}
-
+                  target="_blank"
                   className="mt-3 inline-flex w-fit items-center gap-3 rounded-full px-5 py-3 text-sm font-black text-[#102A5E] shadow-xl shadow-[#102A5E]/10 transition hover:scale-[1.02]"
                 >
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md">
@@ -978,15 +978,13 @@ export default function Home() {
                   </span>
                   <span>Google Rating</span>
                   <span className="text-[#F4A300]">4.9</span>
-                  <span className="tracking-[0.08em] text-[#F4A300]">
-                    ★★★★★
-                  </span>
+                  <span className="tracking-[0.08em] text-[#F4A300]">★★★★★</span>
                 </a>
 
                 <div className="mt-4 flex flex-col gap-4 sm:flex-row">
                   <a
-                    onClick={handleWhatsAppClick}
-
+                    href={whatsappUrl}
+                    target="_blank"
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-[#102A5E] px-6 py-3.5 text-center text-[0.82rem] font-black text-white shadow-xl transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
                   >
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
@@ -1039,7 +1037,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
+<section
         id="diagnostico"
         ref={introRef}
         className="relative overflow-hidden bg-transparent px-4 pb-14 pt-16 md:-mt-10 md:px-6 md:pb-20 md:pt-24"
@@ -1135,68 +1133,49 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="tratamientos"
-        className="relative overflow-hidden bg-transparent px-6 py-[4.5rem] md:py-20"
-      >
+      <section id="tratamientos" className="relative overflow-hidden bg-transparent px-6 py-[4.5rem] md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(41,193,213,0.14),transparent_34%),radial-gradient(circle_at_88%_12%,rgba(107,53,168,0.10),transparent_30%)]" />
 
         <div className="relative mx-auto max-w-7xl">
           <div
-            ref={servicesHeaderRef}
-            className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end"
-          >
+  ref={servicesHeaderRef}
+  className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end"
+>
             <div>
-              <p
-                className={`text-sm font-black uppercase tracking-[0.42em] text-[#6FA8B8] transition-all duration-[1100ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-6 opacity-0 blur-sm"
-                }`}
-              >
-                Servicios
-              </p>
+              <p className={`text-sm font-black uppercase tracking-[0.42em] text-[#6FA8B8] transition-all duration-[1100ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-6 opacity-0 blur-sm"
+}`}>
+  Servicios
+</p>
 
-              <h2
-                className={`mt-5 max-w-3xl text-[clamp(2.7rem,4.8vw,4.6rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E] transition-all delay-200 duration-[1300ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-8 opacity-0 blur-sm"
-                }`}
-              >
-                Especialidades para cuidar salud, función y estética
-              </h2>
+    <h2 className={`mt-5 max-w-3xl text-[clamp(2.7rem,4.8vw,4.6rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E] transition-all delay-200 duration-[1300ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-sm"
+}`}>
+  Especialidades para cuidar salud, función y estética
+</h2>
             </div>
 
             <div className="lg:pb-2">
-              <p
-                className={`max-w-2xl text-[1.05rem] font-light leading-[1.8] text-slate-500 transition-all delay-500 duration-[1300ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-8 opacity-0 blur-sm"
-                }`}
-              >
-                Conoce las áreas de atención de YouDent. Cada servicio inicia
-                con valoración clínica para definir el diagnóstico, el alcance y
-                el plan adecuado para tu caso.
-              </p>
+              <p className={`max-w-2xl text-[1.05rem] font-light leading-[1.8] text-slate-500 transition-all delay-500 duration-[1300ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-sm"
+}`}>
+  Conoce las áreas de atención de YouDent. Cada servicio inicia con
+  valoración clínica para definir el diagnóstico, el alcance y el
+  plan adecuado para tu caso.
+</p>
 
-              <p
-                className={`mt-5 text-sm font-black uppercase tracking-[0.28em] text-[#29C1D5] transition-all delay-700 duration-[1200ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-6 opacity-0 blur-sm"
-                }`}
-              >
-                Desliza para ver todos los servicios →
-              </p>
+              <p className={`mt-5 text-sm font-black uppercase tracking-[0.28em] text-[#29C1D5] transition-all delay-700 duration-[1200ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-6 opacity-0 blur-sm"
+}`}>
+  Desliza para ver todos los servicios →
+</p>
             </div>
           </div>
 
           <div
-            ref={servicesRef}
-            className="service-carousel -mx-6 mt-14 flex gap-6 overflow-x-auto px-6 pb-10"
-          >
+  ref={servicesRef}
+  className="service-carousel -mx-6 mt-14 flex gap-6 overflow-x-auto px-6 pb-10"
+>
             {services.map((service) => (
               <article
                 key={service.title}
@@ -1229,8 +1208,8 @@ export default function Home() {
                   </p>
 
                   <a
-                    onClick={handleWhatsAppClick}
-
+                    href={whatsappUrl}
+                    target="_blank"
                     className="mt-7 inline-flex items-center gap-3 rounded-full bg-white/12 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 backdrop-blur-xl transition-all duration-500 hover:bg-[#29C1D5] hover:ring-[#29C1D5]"
                   >
                     Solicitar valoración
@@ -1245,17 +1224,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="nosotros"
-        ref={clinicalRef}
-        className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-20"
-      >
+      <section id="nosotros" ref={clinicalRef} className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(41,193,213,0.08),transparent_34%),radial-gradient(circle_at_92%_18%,rgba(107,53,168,0.07),transparent_30%)]" />
 
         <div className="relative mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-          <div
-            className={`order-2 space-y-6 transition-all duration-[1400ms] ease-out lg:order-1 lg:space-y-8 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-          >
+          <div className={`order-2 space-y-6 transition-all duration-[1400ms] ease-out lg:order-1 lg:space-y-8 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
             <div className="relative hidden min-h-[650px] md:block">
               <div className="absolute left-0 top-8 h-[520px] w-[68%] overflow-hidden rounded-[2.6rem] shadow-[0_32px_90px_rgba(15,23,42,0.16)] ring-1 ring-white/70">
                 <Image
@@ -1298,61 +1271,67 @@ export default function Home() {
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.30),transparent_35%,transparent_70%,rgba(255,255,255,0.14))]" />
 
               <div className="relative h-[560px] overflow-hidden rounded-[2rem] bg-[#071633] md:h-[620px] md:rounded-[2.2rem]">
-                <div className="relative mx-auto flex h-full items-start justify-center px-6 pt-8 pb-4">
-                  {/* GLOW IZQUIERDO */}
-                  <div className="absolute left-0 top-20 h-40 w-40 rounded-full bg-[#29C1D5]/20 blur-3xl" />
+  
+ <div className="relative mx-auto flex h-full items-start justify-center px-6 pt-8 pb-4">
 
-                  {/* GLOW DERECHO */}
-                  <div className="absolute right-0 bottom-20 h-40 w-40 rounded-full bg-[#6B35A8]/15 blur-3xl" />
+  {/* GLOW IZQUIERDO */}
+  <div className="absolute left-0 top-20 h-40 w-40 rounded-full bg-[#29C1D5]/20 blur-3xl" />
 
-                  {/* VIDEO VERTICAL */}
-                  <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-white/90 bg-[#071633] shadow-[0_40px_120px_rgba(15,23,42,0.30)]">
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      webkit-playsinline="true"
-                      preload="metadata"
-                      controls={false}
-                      className="h-[500px] w-auto object-contain md:h-[560px]"
-                    >
-                      <source src="/videos/familia.mp4" type="video/mp4" />
-                    </video>
+  {/* GLOW DERECHO */}
+  <div className="absolute right-0 bottom-20 h-40 w-40 rounded-full bg-[#6B35A8]/15 blur-3xl" />
 
-                    {/* OVERLAY */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071A42]/80 via-transparent to-transparent" />
+  {/* VIDEO VERTICAL */}
+  <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-white/90 bg-[#071633] shadow-[0_40px_120px_rgba(15,23,42,0.30)]">
 
-                    {/* ETIQUETA */}
-                    <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.32em] text-white backdrop-blur-xl">
-                      Atención familiar
-                    </div>
+    <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  webkit-playsinline="true"
+  preload="metadata"
+  controls={false}
+  className="h-[500px] w-auto object-contain md:h-[560px]"
+>
+  <source src="/videos/familia.mp4" type="video/mp4" />
+</video>
 
-                    {/* TEXTO */}
-                    <div className="absolute bottom-8 left-6 right-6">
-                      <p className="text-xs font-black uppercase tracking-[0.28em] text-[#29C1D5]">
-                        Clínica real
-                      </p>
+    {/* OVERLAY */}
+    <div className="absolute inset-0 bg-gradient-to-t from-[#071A42]/80 via-transparent to-transparent" />
 
-                      <h3 className="mt-2 text-3xl font-black leading-tight tracking-[-0.04em] text-white">
-                        Una experiencia tranquila para niños y adultos.
-                      </h3>
-                    </div>
-                  </div>
-                </div>
+    {/* ETIQUETA */}
+    <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.32em] text-white backdrop-blur-xl">
+      Atención familiar
+    </div>
+
+    {/* TEXTO */}
+    <div className="absolute bottom-8 left-6 right-6">
+      <p className="text-xs font-black uppercase tracking-[0.28em] text-[#29C1D5]">
+        Clínica real
+      </p>
+
+      <h3 className="mt-2 text-3xl font-black leading-tight tracking-[-0.04em] text-white">
+        Una experiencia tranquila para niños y adultos.
+      </h3>
+    </div>
+
+  </div>
+</div>
+
+
               </div>
             </div>
           </div>
 
-          <div
-            className={`order-1 transition-all delay-200 duration-[1400ms] ease-out lg:order-2 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-          >
+          <div className={`order-1 transition-all delay-200 duration-[1400ms] ease-out lg:order-2 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-[#6FA8B8]">
               Atención clínica real
             </p>
 
             <h2 className="mt-5 max-w-2xl text-[clamp(2.05rem,10vw,5rem)] font-black leading-[1.03] tracking-[-0.055em] text-[#102A5E]">
-              Diagnóstico claro, planeación real y atención cercana.
+              Diagnóstico claro,
+              planeación real
+              y atención cercana.
             </h2>
 
             <p className="mt-7 max-w-xl text-[1.08rem] font-light leading-[1.85] text-slate-600">
@@ -1370,7 +1349,7 @@ export default function Home() {
                   >
                     {item}
                   </div>
-                ),
+                )
               )}
             </div>
 
@@ -1457,8 +1436,8 @@ export default function Home() {
             </div>
 
             <a
-              onClick={handleWhatsAppClick}
-
+              href={whatsappUrl}
+              target="_blank"
               className="mt-9 inline-flex rounded-full bg-[#102A5E] px-8 py-4 font-black text-white shadow-xl transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
             >
               Agendar valoración
@@ -1467,20 +1446,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="escaneo-3d"
-        ref={scannerRef}
-        className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
-      >
+
+      <section id="escaneo-3d" ref={scannerRef} className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_22%,rgba(41,193,213,0.07),transparent_28%),radial-gradient(circle_at_88%_12%,rgba(107,53,168,0.055),transparent_30%)]" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div
-            className={`grid items-center gap-10 rounded-[2.8rem] border border-[#E4F1F5] bg-white/70 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.055)] backdrop-blur-2xl transition-all duration-[1400ms] ease-out md:p-8 lg:grid-cols-[0.82fr_1.18fr] ${showScanner ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-          >
-            <div
-              className={`lg:pr-4 transition-all delay-150 duration-[1200ms] ease-out ${showScanner ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
-            >
+          <div className={`grid items-center gap-10 rounded-[2.8rem] border border-[#E4F1F5] bg-white/70 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.055)] backdrop-blur-2xl transition-all duration-[1400ms] ease-out md:p-8 lg:grid-cols-[0.82fr_1.18fr] ${showScanner ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
+            <div className={`lg:pr-4 transition-all delay-150 duration-[1200ms] ease-out ${showScanner ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}>
               <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
                 Tecnología cómoda
               </p>
@@ -1490,8 +1462,8 @@ export default function Home() {
               </h2>
 
               <p className="mt-5 max-w-xl text-[1.02rem] font-light leading-[1.85] text-slate-600">
-                Registro digital cómodo para analizar tu boca sin pastas
-                incómodas, visualizar detalles y planear con mayor precisión.
+                Registro digital cómodo para analizar tu boca sin pastas incómodas,
+                visualizar detalles y planear con mayor precisión.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -1507,39 +1479,35 @@ export default function Home() {
               </div>
 
               <a
-                onClick={handleWhatsAppClick}
-
+                href={whatsappUrl}
+                target="_blank"
                 className="mt-8 inline-flex rounded-full bg-[#102A5E] px-7 py-4 text-sm font-black text-white shadow-[0_22px_60px_rgba(16,42,94,0.22)] transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
               >
                 Agendar valoración
               </a>
             </div>
 
-            <div
-              className={`relative min-h-[300px] overflow-hidden rounded-[2rem] bg-[#102A5E] shadow-[0_35px_110px_rgba(15,23,42,0.18)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[455px] md:rounded-[2.6rem] ${showScanner ? "translate-x-0 scale-100 opacity-100" : "translate-x-8 scale-[0.98] opacity-0"}`}
-            >
-              <Image
-                src="/images/scanner3d.jpg"
-                alt="Escaneo intraoral 3D"
-                fill
-                sizes="(max-width: 1024px) 90vw, 760px"
-                className="object-cover"
-              />
+            <div className={`relative min-h-[300px] overflow-hidden rounded-[2rem] bg-[#102A5E] shadow-[0_35px_110px_rgba(15,23,42,0.18)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[455px] md:rounded-[2.6rem] ${showScanner ? "translate-x-0 scale-100 opacity-100" : "translate-x-8 scale-[0.98] opacity-0"}`}>
+  <Image
+    src="/images/scanner3d.jpg"
+    alt="Escaneo intraoral 3D"
+    fill
+    sizes="(max-width: 1024px) 90vw, 760px"
+    className="object-cover"
+  />
 
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_55%,rgba(41,193,213,0.22),transparent_34%)] animate-[scanGlow_4s_ease-in-out_infinite]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_55%,rgba(41,193,213,0.22),transparent_34%)] animate-[scanGlow_4s_ease-in-out_infinite]" />
 
-              <div className="absolute inset-y-0 left-0 w-[2px] bg-[#29C1D5]/80 shadow-[0_0_35px_rgba(41,193,213,0.9)] animate-[scanLine_5s_ease-in-out_infinite]" />
+  <div className="absolute inset-y-0 left-0 w-[2px] bg-[#29C1D5]/80 shadow-[0_0_35px_rgba(41,193,213,0.9)] animate-[scanLine_5s_ease-in-out_infinite]" />
 
-              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(41,193,213,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(41,193,213,0.18)_1px,transparent_1px)] bg-[size:42px_42px] animate-[gridMove_12s_linear_infinite]" />
-            </div>
+  <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(41,193,213,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(41,193,213,0.18)_1px,transparent_1px)] bg-[size:42px_42px] animate-[gridMove_12s_linear_infinite]" />
+
+</div>
           </div>
         </div>
       </section>
 
-      <section
-        id="resenas"
-        className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
-      >
+      <section id="resenas" className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_30%,rgba(41,193,213,0.10),transparent_30%),radial-gradient(circle_at_84%_50%,rgba(107,53,168,0.06),transparent_34%)]" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -1548,12 +1516,14 @@ export default function Home() {
               <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
                 Lo que opinan nuestros pacientes.
               </p>
-              <p className="mt-3 max-w-2xl text-[0.98rem] font-light leading-[1.75] text-slate-500"></p>
+              <p className="mt-3 max-w-2xl text-[0.98rem] font-light leading-[1.75] text-slate-500">
+  
+</p>
             </div>
 
             <a
               href={googleMapsUrl}
-
+              target="_blank"
               className="w-fit rounded-full border border-[#DCEAF0] bg-white/80 px-6 py-3 text-sm font-black text-[#102A5E] shadow-[0_14px_38px_rgba(15,23,42,0.06)] backdrop-blur-xl transition hover:scale-105 hover:text-[#29C1D5]"
             >
               Ver reseñas en Google
@@ -1563,172 +1533,173 @@ export default function Home() {
           <div className="overflow-hidden">
             <div className="flex w-max gap-5 animate-[reviewsTrack_46s_linear_infinite] hover:[animation-play-state:paused]">
               {[...googleReviews, ...googleReviews].map((review, index) => (
-                <article
-                  key={`${review.name}-${index}`}
-                  className="group relative flex min-h-[255px] w-[82vw] max-w-[400px] flex-col justify-between overflow-hidden rounded-[1.8rem] border border-white/80 bg-white/72 p-6 shadow-[0_26px_80px_rgba(16,42,94,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/90 hover:shadow-[0_36px_100px_rgba(16,42,94,0.16)] md:min-h-[265px] md:w-[400px] md:rounded-[2.2rem] md:p-7"
-                >
-                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#29C1D5]/12 blur-3xl" />
-                  <div className="absolute -bottom-12 left-10 h-36 w-36 rounded-full bg-[#6B35A8]/10 blur-3xl" />
-                  <div className="absolute right-7 top-16 text-[6rem] font-black leading-none text-[#102A5E]/5">
-                    “
-                  </div>
+<article
+  key={`${review.name}-${index}`}
+  className="group relative flex min-h-[255px] w-[82vw] max-w-[400px] flex-col justify-between overflow-hidden rounded-[1.8rem] border border-white/80 bg-white/72 p-6 shadow-[0_26px_80px_rgba(16,42,94,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/90 hover:shadow-[0_36px_100px_rgba(16,42,94,0.16)] md:min-h-[265px] md:w-[400px] md:rounded-[2.2rem] md:p-7"
+>
+  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#29C1D5]/12 blur-3xl" />
+  <div className="absolute -bottom-12 left-10 h-36 w-36 rounded-full bg-[#6B35A8]/10 blur-3xl" />
+  <div className="absolute right-7 top-16 text-[6rem] font-black leading-none text-[#102A5E]/5">
+    “
+  </div>
 
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-black shadow-lg ${
-                            index % 2 === 0
-                              ? "bg-[#102A5E] text-white"
-                              : "bg-[#29C1D5]/18 text-[#102A5E]"
-                          }`}
-                        >
-                          {review.name.charAt(0)}
-                        </div>
+  <div className="relative z-10">
+    <div className="flex items-start justify-between gap-4">
+      <div className="flex items-center gap-3">
+        <div
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-black shadow-lg ${
+            index % 2 === 0
+              ? "bg-[#102A5E] text-white"
+              : "bg-[#29C1D5]/18 text-[#102A5E]"
+          }`}
+        >
+          {review.name.charAt(0)}
+        </div>
 
-                        <div>
-                          <h3 className="text-[0.95rem] font-black leading-tight text-[#102A5E]">
-                            {review.name}
-                          </h3>
-                          <p className="mt-1 text-xs font-bold text-slate-400">
-                            Reseña de Google
-                          </p>
-                        </div>
-                      </div>
+        <div>
+          <h3 className="text-[0.95rem] font-black leading-tight text-[#102A5E]">
+            {review.name}
+          </h3>
+          <p className="mt-1 text-xs font-bold text-slate-400">
+            Reseña de Google
+          </p>
+        </div>
+      </div>
 
-                      <span className="rounded-full bg-[#FFF7E6] px-3 py-1 text-xs tracking-[0.08em] text-[#F4A300] shadow-sm">
-                        ★★★★★
-                      </span>
-                    </div>
+      <span className="rounded-full bg-[#FFF7E6] px-3 py-1 text-xs tracking-[0.08em] text-[#F4A300] shadow-sm">
+        ★★★★★
+      </span>
+    </div>
 
-                    <p className="mt-7 text-[1.05rem] font-medium leading-[1.75] tracking-[-0.01em] text-[#41516B]">
-                      “{review.text}”
-                    </p>
-                  </div>
+    <p className="mt-7 text-[1.05rem] font-medium leading-[1.75] tracking-[-0.01em] text-[#41516B]">
+      “{review.text}”
+    </p>
+  </div>
 
-                  <div className="relative z-10 mt-6 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#29C1D5] to-[#6B35A8]/60 transition-all duration-500 group-hover:w-28" />
-                </article>
+  <div className="relative z-10 mt-6 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#29C1D5] to-[#6B35A8]/60 transition-all duration-500 group-hover:w-28" />
+</article>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section
-        id="ubicacion"
-        ref={locationRef}
-        className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
-      >
-        {/* glow fondo */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(41,193,213,0.08),transparent_30%),radial-gradient(circle_at_88%_22%,rgba(107,53,168,0.05),transparent_32%)]" />
+<section
+  id="ubicacion"
+  ref={locationRef}
+  className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
+>
+  {/* glow fondo */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(41,193,213,0.08),transparent_30%),radial-gradient(circle_at_88%_22%,rgba(107,53,168,0.05),transparent_32%)]" />
 
-        <div
-          className={`relative mx-auto max-w-7xl transition-all duration-[1400ms] ease-out ${showLocation ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
+  <div className={`relative mx-auto max-w-7xl transition-all duration-[1400ms] ease-out ${showLocation ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
+    
+    {/* encabezado superior */}
+    <div className={`mb-10 flex flex-col gap-5 transition-all delay-150 duration-[1200ms] ease-out lg:flex-row lg:items-end lg:justify-between ${showLocation ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+      
+      <div>
+        <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
+          Ubicación
+        </p>
+
+        <h2 className="mt-4 max-w-3xl text-[clamp(2.3rem,4vw,4.5rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E]">
+          Estamos en Del Valle Sur
+        </h2>
+
+        <p className="mt-5 max-w-2xl text-[1rem] font-light leading-[1.85] text-slate-500">
+          Félix Cuevas 301 · Piso 1 · Consultorio 107 · Benito Juárez · CDMX
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <a
+          href={googleMapsUrl}
+          target="_blank"
+          className="inline-flex items-center rounded-full border border-[#DCEAF0] bg-white px-6 py-3 text-sm font-black text-[#102A5E] shadow-[0_14px_40px_rgba(15,23,42,0.06)] transition hover:scale-105 hover:text-[#29C1D5]"
         >
-          {/* encabezado superior */}
-          <div
-            className={`mb-10 flex flex-col gap-5 transition-all delay-150 duration-[1200ms] ease-out lg:flex-row lg:items-end lg:justify-between ${showLocation ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
-          >
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
-                Ubicación
-              </p>
+          Abrir en Google Maps
+        </a>
 
-              <h2 className="mt-4 max-w-3xl text-[clamp(2.3rem,4vw,4.5rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E]">
-                Estamos en Del Valle Sur
-              </h2>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          className="inline-flex items-center rounded-full bg-[#102A5E] px-6 py-3 text-sm font-black text-white shadow-[0_20px_50px_rgba(16,42,94,0.20)] transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
+        >
+          Agendar por WhatsApp
+        </a>
+      </div>
+    </div>
 
-              <p className="mt-5 max-w-2xl text-[1rem] font-light leading-[1.85] text-slate-500">
-                Félix Cuevas 301 · Piso 1 · Consultorio 107 · Benito Juárez ·
-                CDMX
-              </p>
-            </div>
+    {/* mapa principal */}
+    <div className={`relative overflow-hidden rounded-[2.8rem] border border-white/60 bg-white shadow-[0_40px_120px_rgba(15,23,42,0.10)] transition-all delay-300 duration-[1300ms] ease-out ${showLocation ? "translate-y-0 scale-100 opacity-100" : "translate-y-8 scale-[0.985] opacity-0"}`}>
+      
+      {/* mapa */}
+      <iframe
+        src="https://www.google.com/maps?q=YouDent%20CDMX%20Felix%20Cuevas%20301%20Consultorio%20107%20Del%20Valle%20Sur%20Benito%20Juarez%20CDMX&output=embed"
+        height="560"
+        loading="lazy"
+        className="h-[560px] w-full border-0"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+      />
 
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={googleMapsUrl}
+      {/* overlay suave */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071A42]/12 via-transparent to-white/10" />
 
-                className="inline-flex items-center rounded-full border border-[#DCEAF0] bg-white px-6 py-3 text-sm font-black text-[#102A5E] shadow-[0_14px_40px_rgba(15,23,42,0.06)] transition hover:scale-105 hover:text-[#29C1D5]"
-              >
-                Abrir en Google Maps
-              </a>
-
-              <a
-                onClick={handleWhatsAppClick}
-
-                className="inline-flex items-center rounded-full bg-[#102A5E] px-6 py-3 text-sm font-black text-white shadow-[0_20px_50px_rgba(16,42,94,0.20)] transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
-              >
-                Agendar por WhatsApp
-              </a>
-            </div>
+      {/* card flotante */}
+      <div className="absolute left-6 top-6 max-w-[380px] rounded-[2rem] border border-white/30 bg-white/75 p-6 shadow-[0_25px_80px_rgba(15,23,42,0.14)] backdrop-blur-2xl md:left-10 md:top-10">
+        
+        <div className="mb-5 flex items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#102A5E] text-white">
+            <MapPinned className="h-5 w-5" strokeWidth={1.9} />
           </div>
 
-          {/* mapa principal */}
-          <div
-            className={`relative overflow-hidden rounded-[2.8rem] border border-white/60 bg-white shadow-[0_40px_120px_rgba(15,23,42,0.10)] transition-all delay-300 duration-[1300ms] ease-out ${showLocation ? "translate-y-0 scale-100 opacity-100" : "translate-y-8 scale-[0.985] opacity-0"}`}
-          >
-            {/* mapa */}
-            <iframe
-              src="https://www.google.com/maps?q=YouDent%20CDMX%20Felix%20Cuevas%20301%20Consultorio%20107%20Del%20Valle%20Sur%20Benito%20Juarez%20CDMX&output=embed"
-              height="560"
-              loading="lazy"
-              className="h-[560px] w-full border-0"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#29C1D5]">
+              YouDent CDMX
+            </p>
 
-            {/* overlay suave */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071A42]/12 via-transparent to-white/10" />
-
-            {/* card flotante */}
-            <div className="absolute left-6 top-6 max-w-[380px] rounded-[2rem] border border-white/30 bg-white/75 p-6 shadow-[0_25px_80px_rgba(15,23,42,0.14)] backdrop-blur-2xl md:left-10 md:top-10">
-              <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#102A5E] text-white">
-                  <MapPinned className="h-5 w-5" strokeWidth={1.9} />
-                </div>
-
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.24em] text-[#29C1D5]">
-                    YouDent CDMX
-                  </p>
-
-                  <h3 className="mt-1 text-xl font-black leading-tight text-[#102A5E]">
-                    Clínica dental en Benito Juárez
-                  </h3>
-                </div>
-              </div>
-
-              <div className="space-y-3 text-[0.96rem] leading-[1.75] text-slate-600">
-                <p>Félix Cuevas 301, Piso 1, Consultorio 107.</p>
-
-                <p>
-                  Col. Del Valle Sur, Benito Juárez, 03104 Ciudad de México.
-                </p>
-
-                <p>Zona céntrica, fácil acceso y atención con previa cita.</p>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href={googleMapsUrl}
-
-                  className="rounded-full border border-[#DCEAF0] bg-white px-5 py-3 text-sm font-black text-[#102A5E] transition hover:text-[#29C1D5]"
-                >
-                  Cómo llegar
-                </a>
-
-                <a
-                  onClick={handleWhatsAppClick}
-
-                  className="rounded-full bg-[#102A5E] px-5 py-3 text-sm font-black text-white transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
-                >
-                  Agendar cita
-                </a>
-              </div>
-            </div>
+            <h3 className="mt-1 text-xl font-black leading-tight text-[#102A5E]">
+              Clínica dental en Benito Juárez
+            </h3>
           </div>
         </div>
-      </section>
+
+        <div className="space-y-3 text-[0.96rem] leading-[1.75] text-slate-600">
+          <p>
+            Félix Cuevas 301, Piso 1, Consultorio 107.
+          </p>
+
+          <p>
+            Col. Del Valle Sur, Benito Juárez, 03104 Ciudad de México.
+          </p>
+
+          <p>
+            Zona céntrica, fácil acceso y atención con previa cita.
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            className="rounded-full border border-[#DCEAF0] bg-white px-5 py-3 text-sm font-black text-[#102A5E] transition hover:text-[#29C1D5]"
+          >
+            Cómo llegar
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            className="rounded-full bg-[#102A5E] px-5 py-3 text-sm font-black text-white transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
+          >
+            Agendar cita
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <footer className="bg-[#102A5E] px-6 py-16 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
@@ -1769,7 +1740,7 @@ export default function Home() {
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/youdentcdmx"
-
+                target="_blank"
                 aria-label="Instagram YouDent CDMX"
                 className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
               >
@@ -1778,7 +1749,7 @@ export default function Home() {
 
               <a
                 href="https://www.facebook.com/youdentcdmx"
-
+                target="_blank"
                 aria-label="Facebook YouDent CDMX"
                 className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
               >
@@ -1796,8 +1767,8 @@ export default function Home() {
       </footer>
 
       <a
-        onClick={handleWhatsAppClick}
-
+        href={whatsappUrl}
+        target="_blank"
         aria-label="Agendar por WhatsApp"
         className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-2xl transition hover:scale-110 md:bottom-6 md:right-6 md:h-16 md:w-16"
       >
