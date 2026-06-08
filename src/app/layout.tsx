@@ -2,7 +2,7 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata = {
-  title: "Clínica YouDent",
+  title: "Clínica Dental YouDent | Dentistas en CDMX",
   description:
     "Clínica dental en CDMX con atención cercana, diagnóstico claro y tratamientos personalizados en estética dental, implantes, ortodoncia y endodoncia.",
   icons: {
