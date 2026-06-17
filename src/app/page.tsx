@@ -800,7 +800,8 @@ useEffect(() => {
                 </h1>
 
                 <p className="mt-4 text-[0.98rem] font-light leading-[1.75] text-slate-600">
-                  Diagnóstico claro, trato cercano y planeación para atender tu caso con confianza.
+                  Confiar tu sonrisa no debería sentirse incierto.
+En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde la primera valoración
                 </p>
 
                 <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-[#DCEAF0] bg-white/85 px-4 py-2 shadow-sm">
