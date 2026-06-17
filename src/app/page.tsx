@@ -1259,7 +1259,7 @@ useEffect(() => {
               </div>
 
               <div className="absolute left-[58%] top-[44%] rounded-full border border-[#29C1D5]/20 bg-white/85 px-5 py-3 text-xs font-black uppercase tracking-[0.28em] text-[#102A5E] shadow-[0_16px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl">
-                CRITERIO CLÍNICO INTEGRAL
+                CRITERIO CLÍNICO
               </div>
             </div>
 
