@@ -47,14 +47,14 @@ const teamInfoByImage: Record<
   { specialty: string; description: string; name: string }
 > = {
   "/images/team_2.jpg": {
-    specialty: "Periodoncia e Implantología",
+    specialty: "Periodoncia&  Implantología",
     description: "Salud, estética y cuidado de encías",
     name: "— Dra. Sandra Camacho",
   },
   "/images/team_3.jpg": {
     specialty: "Ortodoncia estética",
     description: "Armonización funcional de la sonrisa",
-    name: "— Dra. Christel",
+    name: "— Dra. Christel Ramírez",
   },
   "/images/team_4.jpg": {
     specialty: "Cirugía maxilofacial",
@@ -947,8 +947,8 @@ useEffect(() => {
                 <div className="mt-6 h-1 w-24 rounded-full bg-[#6FA8B8]" />
 
                 <p className="mt-3 text-center leading-normal text-white/95">
-                  Odontología moderna con atención cercana, diagnóstico preciso y
-                  enfoque estético.
+                 Confiar tu sonrisa no debería sentirse incierto.
+En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde la primera valoración
                 </p>
 
                 <a
