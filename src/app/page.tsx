@@ -1259,7 +1259,7 @@ useEffect(() => {
               </div>
 
               <div className="absolute left-[58%] top-[44%] rounded-full border border-[#29C1D5]/20 bg-white/85 px-5 py-3 text-xs font-black uppercase tracking-[0.28em] text-[#102A5E] shadow-[0_16px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl">
-                Clínica real
+                CRITERIO CLÍNICO INTEGRAL
               </div>
             </div>
 
@@ -1327,15 +1327,13 @@ useEffect(() => {
             </p>
 
             <h2 className="mt-5 max-w-2xl text-[clamp(2.05rem,10vw,5rem)] font-black leading-[1.03] tracking-[-0.055em] text-[#102A5E]">
-              Diagnóstico claro,
-              planeación real
+              Diagnóstico integral,
+              planificación clara
               y atención cercana.
             </h2>
 
             <p className="mt-7 max-w-xl text-[1.08rem] font-light leading-[1.85] text-slate-600">
-              Cada caso inicia entendiendo tus objetivos, prioridades y tiempos.
-              Explicamos el diagnóstico y las opciones de tratamiento antes de
-              comenzar, para que tomes decisiones con claridad.
+              Antes de iniciar, revisamos tu caso con una mirada completa: salud, función, estética y etapa del tratamiento. Así podemos explicarte qué necesita atención primero y cuál es la mejor ruta para ti.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -1374,7 +1372,7 @@ useEffect(() => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#071A42]/55 via-transparent to-transparent" />
 
                 <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-white/85 backdrop-blur-xl">
-                  Caso real
+                  RESTAURACIÓN DIRECTA
                 </div>
 
                 <div className="compare-handle absolute top-0 h-full w-px bg-white/90 shadow-[0_0_28px_rgba(255,255,255,0.65)]">
