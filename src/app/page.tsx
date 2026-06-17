@@ -1151,7 +1151,7 @@ useEffect(() => {
     <h2 className={`mt-5 max-w-3xl text-[clamp(2.7rem,4.8vw,4.6rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E] transition-all delay-200 duration-[1300ms] ease-out ${
   showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-sm"
 }`}>
-  Especialidades para cuidar salud, función y estética
+  Una visión completa para cada etapa de tu tratamiento
 </h2>
             </div>
 
@@ -1159,9 +1159,7 @@ useEffect(() => {
               <p className={`max-w-2xl text-[1.05rem] font-light leading-[1.8] text-slate-500 transition-all delay-500 duration-[1300ms] ease-out ${
   showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-sm"
 }`}>
-  Conoce las áreas de atención de YouDent. Cada servicio inicia con
-  valoración clínica para definir el diagnóstico, el alcance y el
-  plan adecuado para tu caso.
+  En YouDent reunimos distintas especialidades para atender cada caso con una visión completa: desde prevención y estética, hasta tratamientos de encía, raíz, mordida, cirugía o rehabilitación.
 </p>
 
               <p className={`mt-5 text-sm font-black uppercase tracking-[0.28em] text-[#29C1D5] transition-all delay-700 duration-[1200ms] ease-out ${
