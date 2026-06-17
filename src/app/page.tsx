@@ -1329,7 +1329,7 @@ useEffect(() => {
             <h2 className="mt-5 max-w-2xl text-[clamp(2.05rem,10vw,5rem)] font-black leading-[1.03] tracking-[-0.055em] text-[#102A5E]">
               Diagnóstico integral,
               planificación clara
-              y atención cercana.
+              y atención cercana
             </h2>
 
             <p className="mt-7 max-w-xl text-[1.08rem] font-light leading-[1.85] text-slate-600">
