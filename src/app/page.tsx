@@ -1228,7 +1228,43 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
 
         <div className="relative mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div className={`order-2 space-y-6 transition-all duration-[1400ms] ease-out lg:order-1 lg:space-y-8 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
-            <div className="relative hidden min-h-[650px] md:block">
+            <div className="relative min-h-[520px] md:hidden">
+  <div className="absolute left-0 top-8 h-[390px] w-[70%] overflow-hidden rounded-[2rem] shadow-[0_28px_80px_rgba(15,23,42,0.14)] ring-1 ring-white/70">
+    <Image
+      src="/images/verito.jpg"
+      alt="Atención clínica YouDent"
+      fill
+      sizes="70vw"
+      className="object-cover object-[50%_42%]"
+    />
+  </div>
+
+  <div className="absolute right-0 top-0 h-[215px] w-[52%] overflow-hidden rounded-[1.8rem] shadow-[0_22px_60px_rgba(15,23,42,0.14)] ring-[8px] ring-white">
+    <Image
+      src="/images/perlita.JPG"
+      alt="Diagnóstico y planeación dental"
+      fill
+      sizes="52vw"
+      className="object-cover object-[45%_38%]"
+    />
+  </div>
+
+  <div className="absolute bottom-0 right-2 h-[210px] w-[58%] overflow-hidden rounded-[1.8rem] shadow-[0_22px_60px_rgba(15,23,42,0.14)] ring-[8px] ring-white">
+    <Image
+      src="/images/marquito.JPG"
+      alt="Atención especializada YouDent"
+      fill
+      sizes="58vw"
+      className="object-cover object-[45%_45%]"
+    />
+  </div>
+
+  <div className="absolute left-[42%] top-[43%] rounded-full border border-[#29C1D5]/20 bg-white/90 px-4 py-2 text-[0.62rem] font-black uppercase tracking-[0.22em] text-[#102A5E] shadow-[0_16px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl">
+    CRITERIO CLÍNICO
+  </div>
+</div>
+
+<div className="relative hidden min-h-[650px] md:block">
               <div className="absolute left-0 top-8 h-[520px] w-[68%] overflow-hidden rounded-[2.6rem] shadow-[0_32px_90px_rgba(15,23,42,0.16)] ring-1 ring-white/70">
                 <Image
                   src="/images/verito.jpg"
