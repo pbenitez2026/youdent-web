@@ -20,6 +20,7 @@ const whatsappUrl =
 
 const googleMapsUrl = "https://maps.app.goo.gl/ALvf7W4xujUBQLzs9";
 
+
 const handleWhatsAppClick = () => {
   if (typeof window !== "undefined" && (window as any).gtag) {
     (window as any).gtag("event", "contact", {
@@ -101,6 +102,7 @@ const visitInfo = [
     ],
   },
 ];
+
 
 const processSteps = [
   {
@@ -272,6 +274,7 @@ const diagnosticPoints = [
   },
 ];
 
+
 function ToothDiagnosticVisual() {
   return (
     <div className="relative mx-auto flex h-[360px] w-full max-w-[420px] items-center justify-center md:h-[430px]">
@@ -297,14 +300,7 @@ function ToothDiagnosticVisual() {
         aria-hidden="true"
       >
         <defs>
-          <linearGradient
-            id="toothBody"
-            x1="62"
-            y1="28"
-            x2="195"
-            y2="276"
-            gradientUnits="userSpaceOnUse"
-          >
+          <linearGradient id="toothBody" x1="62" y1="28" x2="195" y2="276" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="#FFFFFF" />
             <stop offset="0.48" stopColor="#F4FCFD" />
             <stop offset="1" stopColor="#DDEFF5" />
@@ -366,13 +362,10 @@ function ToothDiagnosticVisual() {
   );
 }
 
+
 function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`${className} fill-none`}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" className={`${className} fill-none`} aria-hidden="true">
       <rect
         x="4"
         y="4"
@@ -382,7 +375,13 @@ function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
         stroke="currentColor"
         strokeWidth="1.8"
       />
-      <circle cx="12" cy="12" r="3.4" stroke="currentColor" strokeWidth="1.8" />
+      <circle
+        cx="12"
+        cy="12"
+        r="3.4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
       <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
     </svg>
   );
@@ -390,11 +389,7 @@ function InstagramIcon({ className = "h-5 w-5" }: { className?: string }) {
 
 function FacebookIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`${className} fill-current`}
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
       <path d="M14.2 8.2V6.8c0-.7.5-.9.9-.9h2V2.4L14.4 2.4c-3.1 0-4.6 1.9-4.6 4.5v1.3H7.2v3.7h2.6V22h4.1V11.9h2.9l.5-3.7h-3.1Z" />
     </svg>
   );
@@ -414,8 +409,8 @@ export default function Home() {
   const [showGlass, setShowGlass] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
   const introRef = useRef<HTMLElement | null>(null);
-  const [showServices, setShowServices] = useState(false);
-  const servicesHeaderRef = useRef<HTMLDivElement | null>(null);
+const [showServices, setShowServices] = useState(false);
+const servicesHeaderRef = useRef<HTMLDivElement | null>(null);
   const [showClinical, setShowClinical] = useState(false);
   const clinicalRef = useRef<HTMLElement | null>(null);
   const [showScanner, setShowScanner] = useState(false);
@@ -446,32 +441,32 @@ export default function Home() {
 
     return () => window.clearInterval(interval);
   }, [startCarousel]);
-  const servicesRef = useRef<HTMLDivElement | null>(null);
+const servicesRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const container = servicesRef.current;
+useEffect(() => {
+  const container = servicesRef.current;
 
-    if (!container) return;
+  if (!container) return;
 
-    let animationFrame: number;
+  let animationFrame: number;
 
-    const autoScroll = () => {
-      container.scrollLeft += 0.45;
+  const autoScroll = () => {
+    container.scrollLeft += 0.45;
 
-      if (
-        container.scrollLeft + container.clientWidth >=
-        container.scrollWidth - 1
-      ) {
-        container.scrollLeft = 0;
-      }
-
-      animationFrame = requestAnimationFrame(autoScroll);
-    };
+    if (
+      container.scrollLeft + container.clientWidth >=
+      container.scrollWidth - 1
+    ) {
+      container.scrollLeft = 0;
+    }
 
     animationFrame = requestAnimationFrame(autoScroll);
+  };
 
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  animationFrame = requestAnimationFrame(autoScroll);
+
+  return () => cancelAnimationFrame(animationFrame);
+}, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -480,7 +475,7 @@ export default function Home() {
           observer.disconnect();
         }
       },
-      { threshold: 0.22 },
+      { threshold: 0.22 }
     );
 
     if (introRef.current) {
@@ -489,77 +484,77 @@ export default function Home() {
 
     return () => observer.disconnect();
   }, []);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowServices(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowServices(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
 
-    if (servicesHeaderRef.current) {
-      observer.observe(servicesHeaderRef.current);
-    }
+  if (servicesHeaderRef.current) {
+    observer.observe(servicesHeaderRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowClinical(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowClinical(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.18 }
+  );
 
-    if (clinicalRef.current) {
-      observer.observe(clinicalRef.current);
-    }
+  if (clinicalRef.current) {
+    observer.observe(clinicalRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowScanner(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.22 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowScanner(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.22 }
+  );
 
-    if (scannerRef.current) {
-      observer.observe(scannerRef.current);
-    }
+  if (scannerRef.current) {
+    observer.observe(scannerRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShowLocation(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 },
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setShowLocation(true);
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.18 }
+  );
 
-    if (locationRef.current) {
-      observer.observe(locationRef.current);
-    }
+  if (locationRef.current) {
+    observer.observe(locationRef.current);
+  }
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
   const currentTeamInfo = teamInfoByImage[heroImages[currentImage]];
 
   return (
@@ -571,153 +566,151 @@ export default function Home() {
           font-family: "Manrope", Arial, sans-serif;
         }
         @keyframes scanLine {
-          0%,
-          100% {
-            left: 18%;
-            opacity: 0.25;
-          }
+  0%, 100% {
+    left: 18%;
+    opacity: 0.25;
+  }
 
-          50% {
-            left: 78%;
-            opacity: 1;
-          }
-        }
+  50% {
+    left: 78%;
+    opacity: 1;
+  }
+}
 
-        @keyframes scanGlow {
-          0%,
-          100% {
-            opacity: 0.25;
-            transform: scale(1);
-          }
+@keyframes scanGlow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
 
-          50% {
-            opacity: 0.75;
-            transform: scale(1.08);
-          }
-        }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
 
-        @keyframes gridMove {
-          from {
-            background-position: 0 0;
-          }
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
 
-          to {
-            background-position: 84px 84px;
-          }
-        }
-        @keyframes serviceIntro {
-          from {
-            opacity: 0;
-            transform: translateY(18px);
-            filter: blur(6px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-          }
-        }
-        @keyframes compareClip {
-          0%,
-          100% {
-            clip-path: inset(0 0 0 66%);
-          }
-          50% {
-            clip-path: inset(0 0 0 28%);
-          }
-        }
+  to {
+    background-position: 84px 84px;
+  }
+}  
+@keyframes serviceIntro {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+@keyframes compareClip {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 66%);
+  }
+  50% {
+    clip-path: inset(0 0 0 28%);
+  }
+}
 
-        @keyframes compareHandle {
-          0%,
-          100% {
-            left: 66%;
-          }
-          50% {
-            left: 28%;
-          }
-        }
+@keyframes compareHandle {
+  0%,
+  100% {
+    left: 66%;
+  }
+  50% {
+    left: 28%;
+  }
+}
 
-        .compare-after {
-          animation: compareClip 6.5s ease-in-out infinite;
-        }
+.compare-after {
+  animation: compareClip 6.5s ease-in-out infinite;
+}
 
-        .compare-handle {
-          animation: compareHandle 6.5s ease-in-out infinite;
-        }
+.compare-handle {
+  animation: compareHandle 6.5s ease-in-out infinite;
+}
 
-        @keyframes toothFloat {
-          0%,
-          100% {
-            transform: translateY(0) rotate(-1deg);
-          }
-          50% {
-            transform: translateY(-14px) rotate(1deg);
-          }
-        }
+@keyframes toothFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1deg);
+  }
+}
 
-        @keyframes orbit {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-        @keyframes diagnosticPulse {
-          0%,
-          100% {
-            opacity: 0.45;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.08);
-          }
-        }
+@keyframes diagnosticPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
 
-        @keyframes scannerFloat {
-          0%,
-          100% {
-            transform: translateY(0) rotate(-6deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(-2deg);
-          }
-        }
+@keyframes scannerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
 
-        @keyframes scannerSweep {
-          0%,
-          100% {
-            transform: translateX(-42%) scaleX(0.72);
-            opacity: 0.45;
-          }
-          50% {
-            transform: translateX(42%) scaleX(1);
-            opacity: 1;
-          }
-        }
+@keyframes scannerSweep {
+  0%,
+  100% {
+    transform: translateX(-42%) scaleX(0.72);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(42%) scaleX(1);
+    opacity: 1;
+  }
+}
 
-        @keyframes softPulse {
-          0%,
-          100% {
-            opacity: 0.45;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.95;
-            transform: scale(1.04);
-          }
-        }
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
 
-        @keyframes reviewsTrack {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
-        }
+@keyframes reviewsTrack {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 
         @keyframes teamTextIn {
           from {
@@ -807,19 +800,14 @@ export default function Home() {
                 </h1>
 
                 <p className="mt-4 text-[0.98rem] font-light leading-[1.75] text-slate-600">
-                  Confiar tu sonrisa no debería sentirse incierto. En YouDent
-                  unimos diagnóstico preciso, criterio clínico y trato humano
-                  desde la primera valoración
+                  Confiar tu sonrisa no debería sentirse incierto.
+En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde la primera valoración
                 </p>
 
                 <div className="mt-5 flex w-fit items-center gap-2 rounded-full border border-[#DCEAF0] bg-white/85 px-4 py-2 shadow-sm">
-                  <span className="text-sm font-black text-[#102A5E]">
-                    Google
-                  </span>
+                  <span className="text-sm font-black text-[#102A5E]">Google</span>
                   <span className="text-sm font-black text-[#F4A300]">4.9</span>
-                  <span className="text-xs tracking-[0.08em] text-[#F4A300]">
-                    ★★★★★
-                  </span>
+                  <span className="text-xs tracking-[0.08em] text-[#F4A300]">★★★★★</span>
                 </div>
 
                 <div className="mt-5 grid gap-3">
@@ -960,9 +948,8 @@ export default function Home() {
                 <div className="mt-6 h-1 w-24 rounded-full bg-[#6FA8B8]" />
 
                 <p className="mt-3 text-center leading-normal text-white/95">
-                  Confiar tu sonrisa no debería sentirse incierto. En YouDent
-                  unimos diagnóstico preciso, criterio clínico y trato humano
-                  desde la primera valoración
+                 Confiar tu sonrisa no debería sentirse incierto.
+En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde la primera valoración
                 </p>
 
                 <a
@@ -992,9 +979,7 @@ export default function Home() {
                   </span>
                   <span>Google Rating</span>
                   <span className="text-[#F4A300]">4.9</span>
-                  <span className="tracking-[0.08em] text-[#F4A300]">
-                    ★★★★★
-                  </span>
+                  <span className="tracking-[0.08em] text-[#F4A300]">★★★★★</span>
                 </a>
 
                 <div className="mt-4 flex flex-col gap-4 sm:flex-row">
@@ -1053,7 +1038,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
+<section
         id="diagnostico"
         ref={introRef}
         className="relative overflow-hidden bg-transparent px-4 pb-14 pt-16 md:-mt-10 md:px-6 md:pb-20 md:pt-24"
@@ -1149,68 +1134,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="tratamientos"
-        className="relative overflow-hidden bg-transparent px-6 py-[4.5rem] md:py-20"
-      >
+      <section id="tratamientos" className="relative overflow-hidden bg-transparent px-6 py-[4.5rem] md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(41,193,213,0.14),transparent_34%),radial-gradient(circle_at_88%_12%,rgba(107,53,168,0.10),transparent_30%)]" />
 
         <div className="relative mx-auto max-w-7xl">
           <div
-            ref={servicesHeaderRef}
-            className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end"
-          >
+  ref={servicesHeaderRef}
+  className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end"
+>
             <div>
-              <p
-                className={`text-sm font-black uppercase tracking-[0.42em] text-[#6FA8B8] transition-all duration-[1100ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-6 opacity-0 blur-sm"
-                }`}
-              >
-                Servicios
-              </p>
+              <p className={`text-sm font-black uppercase tracking-[0.42em] text-[#6FA8B8] transition-all duration-[1100ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-6 opacity-0 blur-sm"
+}`}>
+  Servicios
+</p>
 
-              <h2
-                className={`mt-5 max-w-3xl text-[clamp(2.7rem,4.8vw,4.6rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E] transition-all delay-200 duration-[1300ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-8 opacity-0 blur-sm"
-                }`}
-              >
-                Una visión completa para cada etapa de tu tratamiento
-              </h2>
+    <h2 className={`mt-5 max-w-3xl text-[clamp(2.7rem,4.8vw,4.6rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E] transition-all delay-200 duration-[1300ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-sm"
+}`}>
+  Una visión completa para cada etapa de tu tratamiento
+</h2>
             </div>
 
             <div className="lg:pb-2">
-              <p
-                className={`max-w-2xl text-[1.05rem] font-light leading-[1.8] text-slate-500 transition-all delay-500 duration-[1300ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-8 opacity-0 blur-sm"
-                }`}
-              >
-                En YouDent reunimos distintas especialidades para atender cada
-                caso con una visión completa: desde prevención y estética, hasta
-                tratamientos de encía, raíz, mordida, cirugía o rehabilitación.
-              </p>
+              <p className={`max-w-2xl text-[1.05rem] font-light leading-[1.8] text-slate-500 transition-all delay-500 duration-[1300ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-8 opacity-0 blur-sm"
+}`}>
+  En YouDent reunimos distintas especialidades para atender cada caso con una visión completa: desde prevención y estética, hasta tratamientos de encía, raíz, mordida, cirugía o rehabilitación.
+</p>
 
-              <p
-                className={`mt-5 text-sm font-black uppercase tracking-[0.28em] text-[#29C1D5] transition-all delay-700 duration-[1200ms] ease-out ${
-                  showServices
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-6 opacity-0 blur-sm"
-                }`}
-              >
-                Desliza para ver todos los servicios →
-              </p>
+              <p className={`mt-5 text-sm font-black uppercase tracking-[0.28em] text-[#29C1D5] transition-all delay-700 duration-[1200ms] ease-out ${
+  showServices ? "translate-y-0 opacity-100 blur-0" : "translate-y-6 opacity-0 blur-sm"
+}`}>
+  Desliza para ver todos los servicios →
+</p>
             </div>
           </div>
 
           <div
-            ref={servicesRef}
-            className="service-carousel -mx-6 mt-14 flex gap-6 overflow-x-auto px-6 pb-10"
-          >
+  ref={servicesRef}
+  className="service-carousel -mx-6 mt-14 flex gap-6 overflow-x-auto px-6 pb-10"
+>
             {services.map((service) => (
               <article
                 key={service.title}
@@ -1259,54 +1223,48 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="nosotros"
-        ref={clinicalRef}
-        className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-20"
-      >
+      <section id="nosotros" ref={clinicalRef} className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(41,193,213,0.08),transparent_34%),radial-gradient(circle_at_92%_18%,rgba(107,53,168,0.07),transparent_30%)]" />
 
         <div className="relative mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-          <div
-            className={`order-2 space-y-6 transition-all duration-[1400ms] ease-out lg:order-1 lg:space-y-8 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-          >
+          <div className={`order-2 space-y-6 transition-all duration-[1400ms] ease-out lg:order-1 lg:space-y-8 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
             <div className="relative min-h-[520px] md:hidden">
-              <div className="absolute left-0 top-8 h-[390px] w-[70%] overflow-hidden rounded-[2rem] shadow-[0_28px_80px_rgba(15,23,42,0.14)] ring-1 ring-white/70">
-                <Image
-                  src="/images/verito.jpg"
-                  alt="Atención clínica YouDent"
-                  fill
-                  sizes="70vw"
-                  className="object-cover object-[50%_42%]"
-                />
-              </div>
+  <div className="absolute left-0 top-8 h-[390px] w-[70%] overflow-hidden rounded-[2rem] shadow-[0_28px_80px_rgba(15,23,42,0.14)] ring-1 ring-white/70">
+    <Image
+      src="/images/verito.jpg"
+      alt="Atención clínica YouDent"
+      fill
+      sizes="70vw"
+      className="object-cover object-[50%_42%]"
+    />
+  </div>
 
-              <div className="absolute right-0 top-0 h-[215px] w-[52%] overflow-hidden rounded-[1.8rem] shadow-[0_22px_60px_rgba(15,23,42,0.14)] ring-[8px] ring-white">
-                <Image
-                  src="/images/perlita.JPG"
-                  alt="Diagnóstico y planeación dental"
-                  fill
-                  sizes="52vw"
-                  className="object-cover object-[45%_38%]"
-                />
-              </div>
+  <div className="absolute right-0 top-0 h-[215px] w-[52%] overflow-hidden rounded-[1.8rem] shadow-[0_22px_60px_rgba(15,23,42,0.14)] ring-[8px] ring-white">
+    <Image
+      src="/images/perlita.JPG"
+      alt="Diagnóstico y planeación dental"
+      fill
+      sizes="52vw"
+      className="object-cover object-[45%_38%]"
+    />
+  </div>
 
-              <div className="absolute bottom-0 right-2 h-[210px] w-[58%] overflow-hidden rounded-[1.8rem] shadow-[0_22px_60px_rgba(15,23,42,0.14)] ring-[8px] ring-white">
-                <Image
-                  src="/images/marquito.JPG"
-                  alt="Atención especializada YouDent"
-                  fill
-                  sizes="58vw"
-                  className="object-cover object-[45%_45%]"
-                />
-              </div>
+  <div className="absolute bottom-0 right-2 h-[210px] w-[58%] overflow-hidden rounded-[1.8rem] shadow-[0_22px_60px_rgba(15,23,42,0.14)] ring-[8px] ring-white">
+    <Image
+      src="/images/marquito.JPG"
+      alt="Atención especializada YouDent"
+      fill
+      sizes="58vw"
+      className="object-cover object-[45%_45%]"
+    />
+  </div>
 
-              <div className="absolute left-[42%] top-[43%] rounded-full border border-[#29C1D5]/20 bg-white/90 px-4 py-2 text-[0.62rem] font-black uppercase tracking-[0.22em] text-[#102A5E] shadow-[0_16px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl">
-                CRITERIO CLÍNICO
-              </div>
-            </div>
+  <div className="absolute left-[42%] top-[43%] rounded-full border border-[#29C1D5]/20 bg-white/90 px-4 py-2 text-[0.62rem] font-black uppercase tracking-[0.22em] text-[#102A5E] shadow-[0_16px_45px_rgba(15,23,42,0.10)] backdrop-blur-xl">
+    CRITERIO CLÍNICO
+  </div>
+</div>
 
-            <div className="relative hidden min-h-[650px] md:block">
+<div className="relative hidden min-h-[650px] md:block">
               <div className="absolute left-0 top-8 h-[520px] w-[68%] overflow-hidden rounded-[2.6rem] shadow-[0_32px_90px_rgba(15,23,42,0.16)] ring-1 ring-white/70">
                 <Image
                   src="/images/verito.jpg"
@@ -1348,68 +1306,71 @@ export default function Home() {
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.30),transparent_35%,transparent_70%,rgba(255,255,255,0.14))]" />
 
               <div className="relative h-[560px] overflow-hidden rounded-[2rem] bg-[#071633] md:h-[620px] md:rounded-[2.2rem]">
-                <div className="relative mx-auto flex h-full items-start justify-center px-6 pt-8 pb-4">
-                  {/* GLOW IZQUIERDO */}
-                  <div className="absolute left-0 top-20 h-40 w-40 rounded-full bg-[#29C1D5]/20 blur-3xl" />
+  
+ <div className="relative mx-auto flex h-full items-start justify-center px-6 pt-8 pb-4">
 
-                  {/* GLOW DERECHO */}
-                  <div className="absolute right-0 bottom-20 h-40 w-40 rounded-full bg-[#6B35A8]/15 blur-3xl" />
+  {/* GLOW IZQUIERDO */}
+  <div className="absolute left-0 top-20 h-40 w-40 rounded-full bg-[#29C1D5]/20 blur-3xl" />
 
-                  {/* VIDEO VERTICAL */}
-                  <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-white/90 bg-[#071633] shadow-[0_40px_120px_rgba(15,23,42,0.30)]">
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      webkit-playsinline="true"
-                      preload="metadata"
-                      controls={false}
-                      className="h-[500px] w-auto object-contain md:h-[560px]"
-                    >
-                      <source src="/videos/familia.mp4" type="video/mp4" />
-                    </video>
+  {/* GLOW DERECHO */}
+  <div className="absolute right-0 bottom-20 h-40 w-40 rounded-full bg-[#6B35A8]/15 blur-3xl" />
 
-                    {/* OVERLAY */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071A42]/80 via-transparent to-transparent" />
+  {/* VIDEO VERTICAL */}
+  <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-white/90 bg-[#071633] shadow-[0_40px_120px_rgba(15,23,42,0.30)]">
 
-                    {/* ETIQUETA */}
-                    <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.32em] text-white backdrop-blur-xl">
-                      Atención familiar
-                    </div>
+    <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  webkit-playsinline="true"
+  preload="metadata"
+  controls={false}
+  className="h-[500px] w-auto object-contain md:h-[560px]"
+>
+  <source src="/videos/familia.mp4" type="video/mp4" />
+</video>
 
-                    {/* TEXTO */}
-                    <div className="absolute bottom-8 left-6 right-6">
-                      <p className="text-xs font-black uppercase tracking-[0.28em] text-[#29C1D5]">
-                        Clínica real
-                      </p>
+    {/* OVERLAY */}
+    <div className="absolute inset-0 bg-gradient-to-t from-[#071A42]/80 via-transparent to-transparent" />
 
-                      <h3 className="mt-2 text-3xl font-black leading-tight tracking-[-0.04em] text-white">
-                        Una experiencia tranquila para niños y adultos.
-                      </h3>
-                    </div>
-                  </div>
-                </div>
+    {/* ETIQUETA */}
+    <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.32em] text-white backdrop-blur-xl">
+      Atención familiar
+    </div>
+
+    {/* TEXTO */}
+    <div className="absolute bottom-8 left-6 right-6">
+      <p className="text-xs font-black uppercase tracking-[0.28em] text-[#29C1D5]">
+        Clínica real
+      </p>
+
+      <h3 className="mt-2 text-3xl font-black leading-tight tracking-[-0.04em] text-white">
+        Una experiencia tranquila para niños y adultos.
+      </h3>
+    </div>
+
+  </div>
+</div>
+
+
               </div>
             </div>
           </div>
 
-          <div
-            className={`order-1 transition-all delay-200 duration-[1400ms] ease-out lg:order-2 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-          >
+          <div className={`order-1 transition-all delay-200 duration-[1400ms] ease-out lg:order-2 ${showClinical ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
             <p className="text-sm font-black uppercase tracking-[0.35em] text-[#6FA8B8]">
               Atención clínica real
             </p>
 
             <h2 className="mt-5 max-w-2xl text-[clamp(2.05rem,10vw,5rem)] font-black leading-[1.03] tracking-[-0.055em] text-[#102A5E]">
-              Diagnóstico integral, planificación clara y atención cercana
+              Diagnóstico integral,
+              planificación clara
+              y atención cercana
             </h2>
 
             <p className="mt-7 max-w-xl text-[1.08rem] font-light leading-[1.85] text-slate-600">
-              Antes de iniciar, revisamos tu caso con una mirada completa:
-              salud, función, estética y etapa del tratamiento. Así podemos
-              explicarte qué necesita atención primero y cuál es la mejor ruta
-              para ti.
+              Antes de iniciar, revisamos tu caso con una mirada completa: salud, función, estética y etapa del tratamiento. Así podemos explicarte qué necesita atención primero y cuál es la mejor ruta para ti.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -1421,7 +1382,7 @@ export default function Home() {
                   >
                     {item}
                   </div>
-                ),
+                )
               )}
             </div>
 
@@ -1518,20 +1479,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="escaneo-3d"
-        ref={scannerRef}
-        className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
-      >
+
+      <section id="escaneo-3d" ref={scannerRef} className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_22%,rgba(41,193,213,0.07),transparent_28%),radial-gradient(circle_at_88%_12%,rgba(107,53,168,0.055),transparent_30%)]" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div
-            className={`grid items-center gap-10 rounded-[2.8rem] border border-[#E4F1F5] bg-white/70 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.055)] backdrop-blur-2xl transition-all duration-[1400ms] ease-out md:p-8 lg:grid-cols-[0.82fr_1.18fr] ${showScanner ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-          >
-            <div
-              className={`lg:pr-4 transition-all delay-150 duration-[1200ms] ease-out ${showScanner ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
-            >
+          <div className={`grid items-center gap-10 rounded-[2.8rem] border border-[#E4F1F5] bg-white/70 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.055)] backdrop-blur-2xl transition-all duration-[1400ms] ease-out md:p-8 lg:grid-cols-[0.82fr_1.18fr] ${showScanner ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
+            <div className={`lg:pr-4 transition-all delay-150 duration-[1200ms] ease-out ${showScanner ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}>
               <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
                 Tecnología cómoda
               </p>
@@ -1541,8 +1495,8 @@ export default function Home() {
               </h2>
 
               <p className="mt-5 max-w-xl text-[1.02rem] font-light leading-[1.85] text-slate-600">
-                Registro digital cómodo para analizar tu boca sin pastas
-                incómodas, visualizar detalles y planear con mayor precisión.
+                Registro digital cómodo para analizar tu boca sin pastas incómodas,
+                visualizar detalles y planear con mayor precisión.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -1566,475 +1520,282 @@ export default function Home() {
               </a>
             </div>
 
-            <div
-              className={`relative min-h-[300px] overflow-hidden rounded-[2rem] bg-[#102A5E] shadow-[0_35px_110px_rgba(15,23,42,0.18)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[455px] md:rounded-[2.6rem] ${showScanner ? "translate-x-0 scale-100 opacity-100" : "translate-x-8 scale-[0.98] opacity-0"}`}
-            >
-              <Image
-                src="/images/scanner3d.jpg"
-                alt="Escaneo intraoral 3D"
-                fill
-                sizes="(max-width: 1024px) 90vw, 760px"
-                className="object-cover"
-              />
+            <div className={`relative min-h-[300px] overflow-hidden rounded-[2rem] bg-[#102A5E] shadow-[0_35px_110px_rgba(15,23,42,0.18)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[455px] md:rounded-[2.6rem] ${showScanner ? "translate-x-0 scale-100 opacity-100" : "translate-x-8 scale-[0.98] opacity-0"}`}>
+  <Image
+    src="/images/scanner3d.jpg"
+    alt="Escaneo intraoral 3D"
+    fill
+    sizes="(max-width: 1024px) 90vw, 760px"
+    className="object-cover"
+  />
 
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_55%,rgba(41,193,213,0.22),transparent_34%)] animate-[scanGlow_4s_ease-in-out_infinite]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_55%,rgba(41,193,213,0.22),transparent_34%)] animate-[scanGlow_4s_ease-in-out_infinite]" />
 
-              <div className="absolute inset-y-0 left-0 w-[2px] bg-[#29C1D5]/80 shadow-[0_0_35px_rgba(41,193,213,0.9)] animate-[scanLine_5s_ease-in-out_infinite]" />
+  <div className="absolute inset-y-0 left-0 w-[2px] bg-[#29C1D5]/80 shadow-[0_0_35px_rgba(41,193,213,0.9)] animate-[scanLine_5s_ease-in-out_infinite]" />
 
-              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(41,193,213,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(41,193,213,0.18)_1px,transparent_1px)] bg-[size:42px_42px] animate-[gridMove_12s_linear_infinite]" />
-            </div>
+  <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(41,193,213,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(41,193,213,0.18)_1px,transparent_1px)] bg-[size:42px_42px] animate-[gridMove_12s_linear_infinite]" />
+
+</div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          CIERRE DE MARCA · RESEÑAS / UBICACIÓN / FOOTER
-          Refresh aurora inspirado en el lenguaje visual de Instagram.
-      ========================================================== */}
-      <section
-        id="resenas"
-        className="relative overflow-hidden bg-[#08193D] px-4 py-16 text-white md:px-6 md:py-24"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(123,234,241,0.28),transparent_28%),radial-gradient(circle_at_75%_18%,rgba(167,106,242,0.42),transparent_34%),radial-gradient(circle_at_90%_96%,rgba(41,193,213,0.24),transparent_34%),linear-gradient(135deg,#071A42_0%,#102A5E_46%,#243E93_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.028)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:72px_72px] opacity-25 [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" />
-
-        <svg
-          className="pointer-events-none absolute -right-10 -top-12 h-[780px] w-[430px] opacity-90 md:right-0 md:top-0 md:h-[920px] md:w-[520px]"
-          viewBox="0 0 520 920"
-          fill="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient
-              id="reviewAuroraLine"
-              x1="150"
-              y1="0"
-              x2="420"
-              y2="900"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#F8F5FF" />
-              <stop offset="0.28" stopColor="#B574FF" />
-              <stop offset="0.72" stopColor="#40E1EA" />
-              <stop offset="1" stopColor="#29C1D5" />
-            </linearGradient>
-            <filter
-              id="reviewGlow"
-              x="-40%"
-              y="-20%"
-              width="180%"
-              height="140%"
-            >
-              <feGaussianBlur stdDeviation="12" />
-            </filter>
-          </defs>
-          <path
-            d="M510 -30C388 60 332 145 352 260C370 360 486 420 442 543C406 642 316 706 343 814C357 868 402 906 455 942"
-            stroke="#A987FF"
-            strokeWidth="25"
-            strokeOpacity="0.22"
-            filter="url(#reviewGlow)"
-          />
-          <path
-            d="M510 -30C388 60 332 145 352 260C370 360 486 420 442 543C406 642 316 706 343 814C357 868 402 906 455 942"
-            stroke="url(#reviewAuroraLine)"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <path
-            d="M505 48C422 112 395 191 411 267C426 341 471 387 460 463"
-            stroke="white"
-            strokeOpacity="0.26"
-            strokeWidth="1.2"
-          />
-          <path
-            d="M479 643C415 704 397 771 414 838C425 883 448 916 473 938"
-            stroke="white"
-            strokeOpacity="0.18"
-            strokeWidth="1.2"
-          />
-        </svg>
+      <section id="resenas" className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_30%,rgba(41,193,213,0.10),transparent_30%),radial-gradient(circle_at_84%_50%,rgba(107,53,168,0.06),transparent_34%)]" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1.03fr_0.97fr] lg:items-end">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.34em] text-[#7BEAF1]">
-                <span className="h-[2px] w-10 bg-[#29C1D5] shadow-[10px_0_0_rgba(41,193,213,0.22)]" />
-                Reseñas verificadas
-              </div>
-
-              <h2 className="mt-7 text-[clamp(3rem,6vw,6.35rem)] font-black leading-[0.9] tracking-[-0.07em] text-white">
-                La confianza
-                <span className="mt-2 block font-light text-[#FFF5D8] [text-shadow:0_3px_14px_rgba(43,31,97,0.45)]">
-                  también se nota.
-                </span>
-              </h2>
-
-              <p className="mt-8 max-w-xl text-[1.05rem] font-light leading-[1.85] text-white/78 md:text-[1.12rem]">
-                Atención cercana, explicaciones claras y un equipo que acompaña
-                cada etapa. Eso es lo que cuentan quienes ya confiaron su
-                sonrisa a YouDent.
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
+                Lo que opinan nuestros pacientes.
               </p>
+              <p className="mt-3 max-w-2xl text-[0.98rem] font-light leading-[1.75] text-slate-500">
+  
+</p>
             </div>
 
-            <article className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/[0.10] p-7 shadow-[0_35px_110px_rgba(0,0,0,0.22)] backdrop-blur-2xl md:rounded-[2.4rem] md:p-9">
-              <div className="absolute -left-16 top-1/2 h-44 w-44 -translate-y-1/2 rounded-full bg-[#29C1D5]/25 blur-3xl" />
-              <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full bg-[#B574FF]/20 blur-3xl" />
-
-              <div className="relative">
-                <div className="flex items-center justify-between gap-5">
-                  <div className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.22em] text-[#7BEAF1]">
-                    <span className="text-lg tracking-normal text-[#FFF5D8]">
-                      ★★★★★
-                    </span>
-                    Google Business
-                  </div>
-                  <span className="text-sm font-black text-white/80">4.9</span>
-                </div>
-
-                <p className="mt-8 text-[1.55rem] font-bold leading-[1.26] tracking-[-0.035em] text-white md:text-[1.9rem]">
-                  “{googleReviews[5].text}”
-                </p>
-
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#7BEAF1,#6B2D8B)] text-sm font-black text-white shadow-[0_0_28px_rgba(123,234,241,0.34)]">
-                    {googleReviews[5].name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-black text-white">
-                      {googleReviews[5].name}
-                    </p>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-white/55">
-                      Reseña verificada
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              className="w-fit rounded-full border border-[#DCEAF0] bg-white/80 px-6 py-3 text-sm font-black text-[#102A5E] shadow-[0_14px_38px_rgba(15,23,42,0.06)] backdrop-blur-xl transition hover:scale-105 hover:text-[#29C1D5]"
+            >
+              Ver reseñas en Google
+            </a>
           </div>
 
-          <div className="mt-14 overflow-hidden md:mt-16">
-            <div className="flex w-max gap-5 animate-[reviewsTrack_56s_linear_infinite] hover:[animation-play-state:paused]">
+          <div className="overflow-hidden">
+            <div className="flex w-max gap-5 animate-[reviewsTrack_46s_linear_infinite] hover:[animation-play-state:paused]">
               {[...googleReviews, ...googleReviews].map((review, index) => (
-                <article
-                  key={`${review.name}-${index}`}
-                  className="group relative flex min-h-[255px] w-[82vw] max-w-[400px] flex-col justify-between overflow-hidden rounded-[1.8rem] border border-white/14 bg-white/[0.08] p-6 shadow-[0_26px_80px_rgba(0,0,0,0.16)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.13] md:min-h-[270px] md:w-[400px] md:rounded-[2.1rem] md:p-7"
-                >
-                  <div className="absolute -right-9 -top-12 text-[8rem] font-black leading-none text-white/[0.07]">
-                    “
-                  </div>
-                  <div className="absolute -bottom-16 left-5 h-36 w-36 rounded-full bg-[#29C1D5]/10 blur-3xl" />
+<article
+  key={`${review.name}-${index}`}
+  className="group relative flex min-h-[255px] w-[82vw] max-w-[400px] flex-col justify-between overflow-hidden rounded-[1.8rem] border border-white/80 bg-white/72 p-6 shadow-[0_26px_80px_rgba(16,42,94,0.10)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/90 hover:shadow-[0_36px_100px_rgba(16,42,94,0.16)] md:min-h-[265px] md:w-[400px] md:rounded-[2.2rem] md:p-7"
+>
+  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#29C1D5]/12 blur-3xl" />
+  <div className="absolute -bottom-12 left-10 h-36 w-36 rounded-full bg-[#6B35A8]/10 blur-3xl" />
+  <div className="absolute right-7 top-16 text-[6rem] font-black leading-none text-[#102A5E]/5">
+    “
+  </div>
 
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/10 text-sm font-black text-[#7BEAF1] shadow-[0_0_20px_rgba(41,193,213,0.15)]">
-                          {review.name.charAt(0)}
-                        </div>
-                        <div>
-                          <h3 className="text-[0.95rem] font-black leading-tight text-white">
-                            {review.name}
-                          </h3>
-                          <p className="mt-1 text-xs font-bold text-white/50">
-                            Reseña de Google
-                          </p>
-                        </div>
-                      </div>
-                      <span className="text-sm tracking-[0.14em] text-[#FFF5D8]">
-                        ★★★★★
-                      </span>
-                    </div>
+  <div className="relative z-10">
+    <div className="flex items-start justify-between gap-4">
+      <div className="flex items-center gap-3">
+        <div
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-black shadow-lg ${
+            index % 2 === 0
+              ? "bg-[#102A5E] text-white"
+              : "bg-[#29C1D5]/18 text-[#102A5E]"
+          }`}
+        >
+          {review.name.charAt(0)}
+        </div>
 
-                    <p className="mt-7 text-[1.02rem] font-medium leading-[1.72] tracking-[-0.01em] text-white/78">
-                      “{review.text}”
-                    </p>
-                  </div>
+        <div>
+          <h3 className="text-[0.95rem] font-black leading-tight text-[#102A5E]">
+            {review.name}
+          </h3>
+          <p className="mt-1 text-xs font-bold text-slate-400">
+            Reseña de Google
+          </p>
+        </div>
+      </div>
 
-                  <div className="relative z-10 mt-6 h-[2px] w-16 bg-gradient-to-r from-[#29C1D5] to-[#B574FF] transition-all duration-500 group-hover:w-28" />
-                </article>
+      <span className="rounded-full bg-[#FFF7E6] px-3 py-1 text-xs tracking-[0.08em] text-[#F4A300] shadow-sm">
+        ★★★★★
+      </span>
+    </div>
+
+    <p className="mt-7 text-[1.05rem] font-medium leading-[1.75] tracking-[-0.01em] text-[#41516B]">
+      “{review.text}”
+    </p>
+  </div>
+
+  <div className="relative z-10 mt-6 h-[3px] w-16 rounded-full bg-gradient-to-r from-[#29C1D5] to-[#6B35A8]/60 transition-all duration-500 group-hover:w-28" />
+</article>
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
+<section
+  id="ubicacion"
+  ref={locationRef}
+  className="relative overflow-hidden bg-transparent px-4 py-14 md:px-6 md:py-[4.5rem]"
+>
+  {/* glow fondo */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(41,193,213,0.08),transparent_30%),radial-gradient(circle_at_88%_22%,rgba(107,53,168,0.05),transparent_32%)]" />
+
+  <div className={`relative mx-auto max-w-7xl transition-all duration-[1400ms] ease-out ${showLocation ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}>
+    
+    {/* encabezado superior */}
+    <div className={`mb-10 flex flex-col gap-5 transition-all delay-150 duration-[1200ms] ease-out lg:flex-row lg:items-end lg:justify-between ${showLocation ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}>
+      
+      <div>
+        <p className="text-xs font-black uppercase tracking-[0.38em] text-[#6FA8B8]">
+          Ubicación
+        </p>
+
+        <h2 className="mt-4 max-w-3xl text-[clamp(2.3rem,4vw,4.5rem)] font-black leading-[1.02] tracking-[-0.05em] text-[#102A5E]">
+          Estamos en Del Valle Sur
+        </h2>
+
+        <p className="mt-5 max-w-2xl text-[1rem] font-light leading-[1.85] text-slate-500">
+          Félix Cuevas 301 · Piso 1 · Consultorio 107 · Benito Juárez · CDMX
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        <a
+          href={googleMapsUrl}
+          target="_blank"
+          className="inline-flex items-center rounded-full border border-[#DCEAF0] bg-white px-6 py-3 text-sm font-black text-[#102A5E] shadow-[0_14px_40px_rgba(15,23,42,0.06)] transition hover:scale-105 hover:text-[#29C1D5]"
+        >
+          Abrir en Google Maps
+        </a>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          className="inline-flex items-center rounded-full bg-[#102A5E] px-6 py-3 text-sm font-black text-white shadow-[0_20px_50px_rgba(16,42,94,0.20)] transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
+        >
+          Agendar por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    {/* mapa principal */}
+    <div className={`relative overflow-hidden rounded-[2.8rem] border border-white/60 bg-white shadow-[0_40px_120px_rgba(15,23,42,0.10)] transition-all delay-300 duration-[1300ms] ease-out ${showLocation ? "translate-y-0 scale-100 opacity-100" : "translate-y-8 scale-[0.985] opacity-0"}`}>
+      
+      {/* mapa */}
+      <iframe
+        src="https://www.google.com/maps?q=YouDent%20CDMX%20Felix%20Cuevas%20301%20Consultorio%20107%20Del%20Valle%20Sur%20Benito%20Juarez%20CDMX&output=embed"
+        height="560"
+        loading="lazy"
+        className="h-[560px] w-full border-0"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+
+      {/* overlay suave */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071A42]/12 via-transparent to-white/10" />
+
+      {/* card flotante */}
+      <div className="absolute left-6 top-6 max-w-[380px] rounded-[2rem] border border-white/30 bg-white/75 p-6 shadow-[0_25px_80px_rgba(15,23,42,0.14)] backdrop-blur-2xl md:left-10 md:top-10">
+        
+        <div className="mb-5 flex items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#102A5E] text-white">
+            <MapPinned className="h-5 w-5" strokeWidth={1.9} />
+          </div>
+
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#29C1D5]">
+              YouDent CDMX
+            </p>
+
+            <h3 className="mt-1 text-xl font-black leading-tight text-[#102A5E]">
+              Clínica dental en Benito Juárez
+            </h3>
+          </div>
+        </div>
+
+        <div className="space-y-3 text-[0.96rem] leading-[1.75] text-slate-600">
+          <p>
+            Félix Cuevas 301, Piso 1, Consultorio 107.
+          </p>
+
+          <p>
+            Col. Del Valle Sur, Benito Juárez, 03104 Ciudad de México.
+          </p>
+
+          <p>
+            Zona céntrica, fácil acceso y atención con previa cita.
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
           <a
             href={googleMapsUrl}
             target="_blank"
-            className="mt-10 inline-flex items-center gap-3 text-sm font-black uppercase tracking-[0.22em] text-[#7BEAF1] transition hover:text-white"
+            className="rounded-full border border-[#DCEAF0] bg-white px-5 py-3 text-sm font-black text-[#102A5E] transition hover:text-[#29C1D5]"
           >
-            Ver todas las reseñas en Google{" "}
-            <span className="text-xl leading-none">↗</span>
+            Cómo llegar
+          </a>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            className="rounded-full bg-[#102A5E] px-5 py-3 text-sm font-black text-white transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
+          >
+            Agendar cita
           </a>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section
-        id="ubicacion"
-        ref={locationRef}
-        className="relative overflow-hidden bg-[#F7FCFD] px-4 py-16 md:px-6 md:py-24"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_12%,rgba(123,234,241,0.34),transparent_31%),radial-gradient(circle_at_80%_10%,rgba(169,135,244,0.34),transparent_34%),linear-gradient(145deg,#F7FEFE_0%,#DFF6F4_34%,#C8C7EA_72%,#9A87D5_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.20),transparent_42%,rgba(10,40,91,0.10)_100%)]" />
+      <footer className="bg-[#102A5E] px-6 py-16 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+          <div>
+            <Image
+              src="/logo_youdent_transparente.png"
+              alt="YouDent"
+              width={150}
+              height={80}
+              className="mb-6 h-auto w-[130px]"
+            />
 
-        <div
-          className={`relative mx-auto max-w-7xl transition-all duration-[1400ms] ease-out ${showLocation ? "translate-y-0 opacity-100 blur-0" : "translate-y-10 opacity-0 blur-sm"}`}
-        >
-          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-            <div className="max-w-xl">
-              <div className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.34em] text-[#008EA9]">
-                <span className="h-[2px] w-10 bg-[#00AFC2] shadow-[10px_0_0_rgba(0,175,194,0.18)]" />
-                Del Valle Sur · CDMX
-              </div>
+            <p className="max-w-sm text-sm leading-relaxed text-white/75">
+              Clínica dental en CDMX con atención profesional, diagnóstico claro
+              y enfoque estético para cuidar tu sonrisa.
+            </p>
+          </div>
 
-              <h2 className="mt-7 text-[clamp(2.85rem,5vw,5.5rem)] font-black leading-[0.94] tracking-[-0.065em] text-[#0A285B]">
-                Estamos cerca
-                <span className="mt-2 block font-light text-[#FFF5D8] [text-shadow:0_2px_10px_rgba(53,38,120,0.35)]">
-                  cuando lo necesitas.
-                </span>
-              </h2>
+          <div>
+            <h3 className="mb-5 text-lg font-black">Contacto</h3>
 
-              <p className="mt-7 max-w-lg text-[1.04rem] font-medium leading-[1.8] text-[#163967]">
-                Félix Cuevas 301 · Piso 1 · Consultorio 107. Un espacio pensado
-                para que tu visita se sienta clara, cómoda y profesional desde
-                que llegas.
+            <div className="space-y-3 text-sm text-white/80">
+              <p className="flex items-center gap-3">
+                <Phone className="h-4 w-4" />
+                56 2593 7193
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-3">
-                <a
-                  href={googleMapsUrl}
-                  target="_blank"
-                  className="inline-flex items-center rounded-full border border-[#0A285B]/15 bg-white/78 px-6 py-3.5 text-sm font-black text-[#0A285B] shadow-[0_16px_42px_rgba(15,23,42,0.10)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-[#29C1D5]/45 hover:text-[#008EA9]"
-                >
-                  Abrir en Google Maps
-                </a>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  className="inline-flex items-center rounded-full bg-[#0A285B] px-6 py-3.5 text-sm font-black text-white shadow-[0_20px_50px_rgba(10,40,91,0.24)] transition hover:-translate-y-1 hover:bg-[#29C1D5]"
-                >
-                  Agendar por WhatsApp
-                </a>
-              </div>
+              <p className="flex items-center gap-3">
+                <Mail className="h-4 w-4" />
+                infopacientes@youdent.com.mx
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="mb-5 text-lg font-black">Redes sociales</h3>
+
+            <div className="flex gap-4">
+              <a
+                href="https://www.instagram.com/youdentcdmx"
+                target="_blank"
+                aria-label="Instagram YouDent CDMX"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/youdentcdmx"
+                target="_blank"
+                aria-label="Facebook YouDent CDMX"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
+              >
+                <FacebookIcon className="h-5 w-5" />
+              </a>
             </div>
 
-            <div
-              className={`relative min-h-[520px] overflow-hidden rounded-[2.4rem] border border-white/65 bg-[#0A285B] shadow-[0_38px_110px_rgba(15,23,42,0.20)] transition-all delay-300 duration-[1300ms] ease-out md:min-h-[610px] md:rounded-[3rem] ${showLocation ? "translate-y-0 scale-100 opacity-100" : "translate-y-8 scale-[0.985] opacity-0"}`}
-            >
-              <iframe
-                title="Ubicación de YouDent CDMX"
-                src="https://www.google.com/maps?q=YouDent%20CDMX%20Felix%20Cuevas%20301%20Consultorio%20107%20Del%20Valle%20Sur%20Benito%20Juarez%20CDMX&output=embed"
-                height="610"
-                loading="lazy"
-                className="h-[610px] w-full border-0 opacity-[0.72] saturate-[0.72] contrast-[1.05]"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(8,25,61,0.04)_0%,rgba(8,25,61,0.20)_52%,rgba(8,25,61,0.82)_100%)]" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[48%] bg-[radial-gradient(circle_at_72%_85%,rgba(41,193,213,0.32),transparent_48%),radial-gradient(circle_at_18%_82%,rgba(181,116,255,0.32),transparent_42%)]" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-9">
-                <div className="max-w-md rounded-[1.7rem] border border-white/18 bg-[#071A42]/76 p-6 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#29C1D5]/16 text-[#7BEAF1] ring-1 ring-white/15">
-                      <MapPinned className="h-5 w-5" strokeWidth={1.9} />
-                    </span>
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7BEAF1]">
-                        YouDent CDMX
-                      </p>
-                      <h3 className="mt-1 text-xl font-black tracking-[-0.03em] text-white">
-                        Clínica dental en Benito Juárez
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 space-y-2 text-[0.96rem] leading-[1.65] text-white/76">
-                    <p>Félix Cuevas 301, Piso 1, Consultorio 107.</p>
-                    <p>
-                      Col. Del Valle Sur, Benito Juárez, 03104 Ciudad de México.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p className="mt-5 text-sm text-white/70">@youdentcdmx</p>
           </div>
         </div>
-      </section>
 
-      <footer className="relative overflow-hidden bg-[#08193D] px-4 pb-7 pt-16 text-white md:px-6 md:pb-8 md:pt-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_7%_4%,rgba(123,234,241,0.18),transparent_27%),radial-gradient(circle_at_80%_18%,rgba(167,106,242,0.30),transparent_35%),radial-gradient(circle_at_84%_100%,rgba(41,193,213,0.24),transparent_38%),linear-gradient(135deg,#071A42_0%,#0B2455_52%,#17377B_100%)]" />
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" />
-
-        <svg
-          className="pointer-events-none absolute -right-12 -top-16 h-[730px] w-[400px] md:right-0 md:top-0 md:h-[850px] md:w-[470px]"
-          viewBox="0 0 470 850"
-          fill="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient
-              id="footerAuroraLine"
-              x1="110"
-              y1="0"
-              x2="390"
-              y2="850"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#F8F5FF" />
-              <stop offset="0.3" stopColor="#B574FF" />
-              <stop offset="0.76" stopColor="#36E0EA" />
-              <stop offset="1" stopColor="#29C1D5" />
-            </linearGradient>
-            <filter
-              id="footerGlow"
-              x="-40%"
-              y="-20%"
-              width="180%"
-              height="140%"
-            >
-              <feGaussianBlur stdDeviation="14" />
-            </filter>
-          </defs>
-          <path
-            d="M475 -24C350 84 308 176 345 286C381 393 455 446 419 560C385 667 301 715 331 811C338 833 351 852 368 871"
-            stroke="#9A74F1"
-            strokeWidth="30"
-            strokeOpacity="0.22"
-            filter="url(#footerGlow)"
-          />
-          <path
-            d="M475 -24C350 84 308 176 345 286C381 393 455 446 419 560C385 667 301 715 331 811C338 833 351 852 368 871"
-            stroke="url(#footerAuroraLine)"
-            strokeWidth="3.2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M449 45C382 120 366 200 389 277C410 347 438 389 427 455"
-            stroke="white"
-            strokeOpacity="0.18"
-            strokeWidth="1.2"
-          />
-          <path
-            d="M428 601C371 661 355 731 372 791C379 819 393 844 410 867"
-            stroke="white"
-            strokeOpacity="0.14"
-            strokeWidth="1.2"
-          />
-        </svg>
-
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1.18fr_0.82fr] lg:items-end lg:gap-16">
-            <div className="max-w-3xl">
-              <p className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.34em] text-[#7BEAF1]">
-                <span className="h-[2px] w-10 bg-[#29C1D5] shadow-[10px_0_0_rgba(41,193,213,0.20)]" />
-                Primera visita
-              </p>
-              <h2 className="mt-7 text-[clamp(3rem,6.2vw,6.3rem)] font-black leading-[0.9] tracking-[-0.075em] text-white">
-                Empieza con
-                <span className="mt-2 block font-light text-[#FFF5D8] [text-shadow:0_3px_14px_rgba(43,31,97,0.48)]">
-                  claridad.
-                </span>
-              </h2>
-              <p className="mt-7 max-w-xl text-[1.04rem] font-light leading-[1.85] text-white/76 md:text-[1.1rem]">
-                Cuéntanos qué te preocupa. Revisamos tu caso, te explicamos tus
-                alternativas y decides con información clara.
-              </p>
-            </div>
-
-            <div className="relative z-10 flex flex-col items-start gap-4 lg:items-end">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                className="inline-flex items-center gap-3 rounded-full bg-[#FFF5D8] px-7 py-4 text-sm font-black uppercase tracking-[0.12em] text-[#0A285B] shadow-[0_22px_70px_rgba(255,245,216,0.16)] transition hover:-translate-y-1 hover:bg-[#29C1D5] hover:text-white"
-              >
-                <span className="text-xl leading-none">→</span>
-                Agenda tu valoración
-              </a>
-              <a
-                href="tel:+525625937193"
-                className="text-sm font-bold text-white/72 transition hover:text-[#7BEAF1]"
-              >
-                56 2593 7193
-              </a>
-            </div>
-          </div>
-
-          <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.82fr_0.72fr] lg:gap-16">
-            <div>
-              <Image
-                src="/logo_youdent_transparente.png"
-                alt="YouDent"
-                width={170}
-                height={80}
-                className="h-auto w-[142px]"
-              />
-              <p className="mt-6 max-w-sm text-sm leading-[1.75] text-white/68">
-                Clínica dental en CDMX con diagnóstico claro, atención
-                profesional y un enfoque estético que cuida función y confianza.
-              </p>
-            </div>
-
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.26em] text-[#7BEAF1]">
-                Contacto
-              </p>
-              <div className="mt-5 space-y-4 text-sm text-white/76">
-                <a
-                  href="tel:+525625937193"
-                  className="flex items-center gap-3 transition hover:text-white"
-                >
-                  <Phone className="h-4 w-4 text-[#29C1D5]" strokeWidth={2} />
-                  56 2593 7193
-                </a>
-                <a
-                  href="mailto:infopacientes@youdent.com.mx"
-                  className="flex items-center gap-3 transition hover:text-white"
-                >
-                  <Mail className="h-4 w-4 text-[#29C1D5]" strokeWidth={2} />
-                  infopacientes@youdent.com.mx
-                </a>
-                <p className="flex items-start gap-3">
-                  <MapPinned
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#29C1D5]"
-                    strokeWidth={2}
-                  />
-                  Félix Cuevas 301 · Piso 1 · Consultorio 107
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.26em] text-[#7BEAF1]">
-                Síguenos
-              </p>
-              <div className="mt-5 flex gap-3">
-                <a
-                  href="https://www.instagram.com/youdentcdmx"
-                  target="_blank"
-                  aria-label="Instagram YouDent CDMX"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:-translate-y-1 hover:border-[#29C1D5] hover:bg-[#29C1D5]"
-                >
-                  <InstagramIcon className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://www.facebook.com/youdentcdmx"
-                  target="_blank"
-                  aria-label="Facebook YouDent CDMX"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:-translate-y-1 hover:border-[#B574FF] hover:bg-[#6B2D8B]"
-                >
-                  <FacebookIcon className="h-5 w-5" />
-                </a>
-              </div>
-              <p className="mt-5 text-sm font-bold tracking-[0.05em] text-white/68">
-                @youdentcdmx
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3 border-t border-white/10 py-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2026 YouDent CDMX. Todos los derechos reservados.</p>
-            <p>Del Valle Sur · Benito Juárez · CDMX</p>
-          </div>
+        <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 pt-6 text-center text-xs text-white/55">
+          © 2026 YouDent CDMX. Todos los derechos reservados.
         </div>
       </footer>
 
