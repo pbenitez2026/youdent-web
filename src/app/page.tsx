@@ -837,7 +837,7 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
                   <a
                     href={whatsappUrl}
                     target="_blank"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/55 bg-[linear-gradient(120deg,#008EA9_0%,#29C1D5_45%,#6B2D8B_100%)] px-6 py-4 text-center text-sm font-black text-[#FFF5D8] shadow-[0_18px_38px_rgba(41,193,213,0.24)] transition-all hover:-translate-y-0.5 hover:bg-[linear-gradient(120deg,#6B2D8B_0%,#29C1D5_52%,#008EA9_100%)] hover:text-white hover:shadow-[0_22px_46px_rgba(107,45,139,0.25)]"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#102A5E] px-6 py-4 text-center text-sm font-black text-white shadow-xl transition-all hover:bg-[#29C1D5]"
                   >
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
                       <WhatsAppIcon className="h-5 w-5" />
@@ -847,7 +847,7 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
 
                   <a
                     href="#tratamientos"
-                    className="w-full rounded-full border border-[#29C1D5]/35 bg-white/82 px-6 py-4 text-center text-sm font-black text-[#0A285B] shadow-[0_12px_28px_rgba(16,42,94,0.08)] transition-all hover:-translate-y-0.5 hover:border-[#6B2D8B]/35 hover:bg-[#FFF5D8] hover:text-[#6B2D8B]"
+                    className="w-full rounded-full border border-[#DCEAF0] bg-white/80 px-6 py-4 text-center text-sm font-black text-[#102A5E] shadow-sm"
                   >
                     Ver servicios
                   </a>
@@ -1007,7 +1007,7 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
                   <a
                     href={whatsappUrl}
                     target="_blank"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/55 bg-[linear-gradient(120deg,#008EA9_0%,#29C1D5_45%,#6B2D8B_100%)] px-6 py-3.5 text-center text-[0.82rem] font-black text-[#FFF5D8] shadow-[0_18px_38px_rgba(41,193,213,0.24)] transition-all hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[linear-gradient(120deg,#6B2D8B_0%,#29C1D5_52%,#008EA9_100%)] hover:text-white hover:shadow-[0_22px_46px_rgba(107,45,139,0.25)]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#102A5E] px-6 py-3.5 text-center text-[0.82rem] font-black text-white shadow-xl transition-all hover:scale-105 hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
                   >
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
                       <WhatsAppIcon className="h-5 w-5" />
@@ -1017,7 +1017,7 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
 
                   <a
                     href="#tratamientos"
-                    className="rounded-full border border-white/45 bg-[#FFF5D8]/92 px-7 py-4 text-center text-base font-black text-[#0A285B] shadow-[0_16px_34px_rgba(16,42,94,0.16)] backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-white hover:text-[#6B2D8B]"
+                    className="rounded-full border border-white/30 bg-white/55 px-7 py-4 text-center text-base font-black text-[#102A5E] shadow-xl backdrop-blur-xl transition hover:scale-105 hover:text-[#6FA8B8]"
                   >
                     Ver servicios
                   </a>
@@ -1897,7 +1897,7 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
         href={whatsappUrl}
         target="_blank"
         aria-label="Agendar por WhatsApp"
-        className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full border border-white/40 bg-[linear-gradient(135deg,#008EA9_0%,#29C1D5_44%,#6B2D8B_100%)] shadow-[0_18px_42px_rgba(41,193,213,0.36)] transition hover:scale-110 hover:shadow-[0_22px_54px_rgba(107,45,139,0.38)] md:bottom-6 md:right-6 md:h-16 md:w-16"
+        className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_18px_42px_rgba(37,211,102,0.36)] transition hover:scale-110 hover:bg-[#1EBE5D] hover:shadow-[0_22px_54px_rgba(37,211,102,0.45)] md:bottom-6 md:right-6 md:h-16 md:w-16"
       >
         <WhatsAppIcon />
       </a>
