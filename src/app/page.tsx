@@ -732,53 +732,76 @@ useEffect(() => {
         }
       `}</style>
 
-      <header className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-6 md:py-4">
-          <Image
-            src="/logo_youdent_transparente.png"
-            alt="YouDent"
-            width={170}
-            height={80}
-            priority
-            className="h-auto w-[116px] md:w-[135px]"
-          />
+      <header className="fixed top-0 z-50 w-full border-b border-[#102A5E]/10 bg-[linear-gradient(90deg,rgba(255,255,255,.96)_0%,rgba(244,252,253,.94)_45%,rgba(242,237,253,.94)_100%)] shadow-[0_10px_34px_rgba(16,42,94,0.06)] backdrop-blur-2xl">
+  <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-6 md:py-4">
+    <Image
+      src="/logo_youdent_transparente.png"
+      alt="YouDent"
+      width={170}
+      height={80}
+      priority
+      className="h-auto w-[116px] md:w-[135px]"
+    />
 
-          <div className="hidden items-center gap-9 text-sm font-bold text-[#102A5E] md:flex">
-            <a href="#inicio" className="border-b-2 border-[#6FA8B8] pb-2">
-              Inicio
-            </a>
-            <a href="#diagnostico" className="hover:text-[#6FA8B8]">
-              Atención inicial
-            </a>
-            <a href="#tratamientos" className="hover:text-[#6FA8B8]">
-              Servicios
-            </a>
-            <a href="#ubicacion" className="hover:text-[#6FA8B8]">
-              Ubicación
-            </a>
-            <a href="#nosotros" className="hover:text-[#6FA8B8]">
-              Nosotros
-            </a>
-          </div>
+    <div className="hidden items-center gap-9 text-sm font-bold md:flex">
+      <a
+        href="#inicio"
+        className="relative pb-2 text-[#102A5E] transition hover:text-[#008EA9] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[linear-gradient(90deg,#29C1D5_0%,#A76AF2_100%)]"
+      >
+        Inicio
+      </a>
 
-          <a
-            href="tel:+525625937193"
-            aria-label="Llamar a YouDent"
-            className="ml-2 hidden h-12 w-12 items-center justify-center rounded-full bg-white text-[#102A5E] shadow-md transition hover:scale-100 hover:text-[#29C1D5] md:flex"
-          >
-            <Phone className="h-3.5 w-3.5 rotate-[-12deg]" strokeWidth={2.4} />
-          </a>
+      <a
+        href="#diagnostico"
+        className="relative pb-2 text-[#102A5E]/80 transition hover:text-[#008EA9] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-[2px] hover:after:w-full hover:after:bg-[#29C1D5]/70"
+      >
+        Atención inicial
+      </a>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            className="hidden items-center gap-2 rounded-full bg-[#102A5E] px-6 py-3 text-sm font-black text-white shadow-lg transition-all hover:scale-105 sm:inline-flex hover:bg-[#29C1D5] hover:text-white hover:shadow-[0_24px_70px_rgba(41,193,213,0.28)]"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-            Cita de diagnóstico
-          </a>
-        </nav>
-      </header>
+      <a
+        href="#tratamientos"
+        className="relative pb-2 text-[#102A5E]/80 transition hover:text-[#008EA9] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-[2px] hover:after:w-full hover:after:bg-[#29C1D5]/70"
+      >
+        Servicios
+      </a>
+
+      <a
+        href="#ubicacion"
+        className="relative pb-2 text-[#102A5E]/80 transition hover:text-[#008EA9] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-[2px] hover:after:w-full hover:after:bg-[#29C1D5]/70"
+      >
+        Ubicación
+      </a>
+
+      <a
+        href="#nosotros"
+        className="relative pb-2 text-[#102A5E]/80 transition hover:text-[#008EA9] hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-[2px] hover:after:w-full hover:after:bg-[#29C1D5]/70"
+      >
+        Nosotros
+      </a>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <a
+        href="tel:+525625937193"
+        aria-label="Llamar a YouDent"
+        className="ml-2 hidden h-12 w-12 items-center justify-center rounded-full border border-[#102A5E]/8 bg-white/72 text-[#102A5E] shadow-[0_10px_24px_rgba(16,42,94,0.10)] transition hover:-translate-y-0.5 hover:border-[#29C1D5]/45 hover:text-[#008EA9] md:flex"
+      >
+        <Phone className="h-3.5 w-3.5 rotate-[-12deg]" strokeWidth={2.4} />
+      </a>
+
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        className="hidden items-center gap-2 rounded-full border border-white/45 bg-[linear-gradient(120deg,#0A285B_0%,#214B95_54%,#6B2D8B_100%)] px-6 py-3 text-sm font-black text-[#FFF5D8] shadow-[0_16px_34px_rgba(41,63,139,0.24)] transition-all hover:-translate-y-0.5 hover:border-[#29C1D5]/75 hover:bg-[linear-gradient(120deg,#008EA9_0%,#29C1D5_48%,#7A54D5_100%)] hover:text-white hover:shadow-[0_20px_42px_rgba(41,193,213,0.28)] sm:inline-flex"
+      >
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/14">
+          <WhatsAppIcon className="h-4 w-4" />
+        </span>
+        Cita de diagnóstico
+      </a>
+    </div>
+  </nav>
+</header>
 
       <section
         id="inicio"
