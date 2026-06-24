@@ -1734,70 +1734,143 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
   </div>
 </section>
 
-      <footer className="bg-[#102A5E] px-6 py-16 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
-          <div>
-            <Image
-              src="/logo_youdent_transparente.png"
-              alt="YouDent"
-              width={150}
-              height={80}
-              className="mb-6 h-auto w-[130px]"
-            />
+      <footer className="relative overflow-hidden px-6 py-16 text-white">
+  {/* Fondo aurora */}
+  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(123,234,241,0.58),transparent_29%),radial-gradient(circle_at_78%_16%,rgba(181,116,255,0.52),transparent_35%),radial-gradient(circle_at_94%_96%,rgba(41,193,213,0.46),transparent_38%),linear-gradient(135deg,#BFEFF0_0%,#B8B7E7_42%,#806FC8_72%,#2B73B6_100%)]" />
 
-            <p className="max-w-sm text-sm leading-relaxed text-white/75">
-              Clínica dental en CDMX con atención profesional, diagnóstico claro
-              y enfoque estético para cuidar tu sonrisa.
-            </p>
-          </div>
+  {/* Velo para que el texto blanco conserve contraste */}
+  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,26,66,0.34)_0%,rgba(8,25,61,0.42)_52%,rgba(6,22,58,0.68)_100%)]" />
 
-          <div>
-            <h3 className="mb-5 text-lg font-black">Contacto</h3>
+  {/* Curva neón derecha, discreta */}
+  <svg
+    className="pointer-events-none absolute -right-10 -top-16 h-[650px] w-[330px] opacity-90 md:right-0 md:top-0 md:h-[760px] md:w-[390px]"
+    viewBox="0 0 390 760"
+    fill="none"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient
+        id="footerAuroraCurve"
+        x1="120"
+        y1="0"
+        x2="330"
+        y2="760"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FFF5D8" />
+        <stop offset="0.28" stopColor="#B574FF" />
+        <stop offset="0.72" stopColor="#40E1EA" />
+        <stop offset="1" stopColor="#29C1D5" />
+      </linearGradient>
 
-            <div className="space-y-3 text-sm text-white/80">
-              <p className="flex items-center gap-3">
-                <Phone className="h-4 w-4" />
-                56 2593 7193
-              </p>
+      <filter
+        id="footerAuroraGlow"
+        x="-40%"
+        y="-20%"
+        width="180%"
+        height="140%"
+      >
+        <feGaussianBlur stdDeviation="12" />
+      </filter>
+    </defs>
 
-              <p className="flex items-center gap-3">
-                <Mail className="h-4 w-4" />
-                infopacientes@youdent.com.mx
-              </p>
-            </div>
-          </div>
+    <path
+      d="M395 -30C288 58 252 148 281 246C307 333 377 390 349 487C323 577 252 632 277 716C284 740 298 761 316 782"
+      stroke="#A987FF"
+      strokeWidth="28"
+      strokeOpacity="0.28"
+      filter="url(#footerAuroraGlow)"
+    />
 
-          <div>
-            <h3 className="mb-5 text-lg font-black">Redes sociales</h3>
+    <path
+      d="M395 -30C288 58 252 148 281 246C307 333 377 390 349 487C323 577 252 632 277 716C284 740 298 761 316 782"
+      stroke="url(#footerAuroraCurve)"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+    />
 
-            <div className="flex gap-4">
-              <a
-                href="https://www.instagram.com/youdentcdmx"
-                target="_blank"
-                aria-label="Instagram YouDent CDMX"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
-              >
-                <InstagramIcon className="h-5 w-5" />
-              </a>
+    <path
+      d="M370 38C312 105 295 183 315 252C334 317 363 356 353 421"
+      stroke="white"
+      strokeOpacity="0.22"
+      strokeWidth="1.2"
+    />
 
-              <a
-                href="https://www.facebook.com/youdentcdmx"
-                target="_blank"
-                aria-label="Facebook YouDent CDMX"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
-              >
-                <FacebookIcon className="h-5 w-5" />
-              </a>
-            </div>
+    <path
+      d="M351 531C302 590 289 652 304 711C311 738 324 762 341 782"
+      stroke="white"
+      strokeOpacity="0.16"
+      strokeWidth="1.2"
+    />
+  </svg>
 
-            <p className="mt-5 text-sm text-white/70">@youdentcdmx</p>
-          </div>
-        </div>
+  <div className="relative z-10 mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+    <div>
+      <Image
+        src="/logo_youdent_transparente.png"
+        alt="YouDent"
+        width={150}
+        height={80}
+        className="mb-6 h-auto w-[130px]"
+      />
 
-        <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 pt-6 text-center text-xs text-white/55">
-          © 2026 YouDent CDMX. Todos los derechos reservados.
-        </div>
-      </footer>
+      <p className="max-w-sm text-sm leading-relaxed text-white/82">
+        Clínica dental en CDMX con atención profesional, diagnóstico claro
+        y enfoque estético para cuidar tu sonrisa.
+      </p>
+    </div>
+
+    <div>
+      <h3 className="mb-5 text-lg font-black text-[#FFF5D8]">
+        Contacto
+      </h3>
+
+      <div className="space-y-3 text-sm text-white/85">
+        <p className="flex items-center gap-3">
+          <Phone className="h-4 w-4 text-[#7BEAF1]" />
+          56 2593 7193
+        </p>
+
+        <p className="flex items-center gap-3">
+          <Mail className="h-4 w-4 text-[#7BEAF1]" />
+          infopacientes@youdent.com.mx
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h3 className="mb-5 text-lg font-black text-[#FFF5D8]">
+        Redes sociales
+      </h3>
+
+      <div className="flex gap-4">
+        <a
+          href="https://www.instagram.com/youdentcdmx"
+          target="_blank"
+          aria-label="Instagram YouDent CDMX"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-[0_0_24px_rgba(41,193,213,0.12)] transition hover:-translate-y-1 hover:border-[#29C1D5] hover:bg-[#29C1D5]"
+        >
+          <InstagramIcon className="h-5 w-5" />
+        </a>
+
+        <a
+          href="https://www.facebook.com/youdentcdmx"
+          target="_blank"
+          aria-label="Facebook YouDent CDMX"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-[0_0_24px_rgba(181,116,255,0.12)] transition hover:-translate-y-1 hover:border-[#B574FF] hover:bg-[#6B2D8B]"
+        >
+          <FacebookIcon className="h-5 w-5" />
+        </a>
+      </div>
+
+      <p className="mt-5 text-sm text-white/78">@youdentcdmx</p>
+    </div>
+  </div>
+
+  <div className="relative z-10 mx-auto mt-12 max-w-7xl border-t border-white/20 pt-6 text-center text-xs text-white/65">
+    © 2026 YouDent CDMX. Todos los derechos reservados.
+  </div>
+</footer>
 
       <a
         href={whatsappUrl}
