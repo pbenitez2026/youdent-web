@@ -1810,4 +1810,3 @@ En YouDent unimos diagnóstico preciso, criterio clínico y trato humano desde l
     </main>
   );
 }
-
