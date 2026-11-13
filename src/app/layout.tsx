@@ -1,69 +1,36 @@
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { Analytics } from "@/components/analytics";
+import { clinic } from "@/lib/clinic";
 import "./globals.css";
-import Script from "next/script";
+import "./editorial.css";
+import "./desktop-scale.css";
 
-export const metadata = {
-  title: "Clínica Dental YouDent | Dentistas en CDMX",
-  description:
-    "Clínica dental en CDMX con atención cercana, diagnóstico claro y tratamientos personalizados en estética dental, implantes, ortodoncia y endodoncia.",
+const sans = localFont({src:"./fonts/Manrope-latin.woff2",variable:"--font-manrope",weight:"200 800",display:"swap"});
+const editorial = localFont({src:"./fonts/Fraunces-Italic-latin.woff2",variable:"--font-fraunces",weight:"100 900",style:"italic",display:"swap",preload:false});
+const warmEditorial = localFont({src:"./fonts/Newsreader-Italic.woff2",variable:"--font-newsreader",weight:"200 800",style:"italic",display:"swap"});
+const production=process.env.VERCEL_ENV === "production";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(clinic.url),
+  title: "YouDent | Odontología integral en Del Valle Sur, CDMX",
+  description: "Conoce al equipo de YouDent en Del Valle Sur: ortodoncia, endodoncia, implantes, periodoncia y restauraciones. Agenda tu valoración por WhatsApp.",
+  alternates: {canonical:"/"},
+  openGraph: {type:"website",locale:"es_MX",url:"/",siteName:clinic.name,title:"YouDent | Especialistas en Del Valle Sur, CDMX",description:"Odontología integral, un equipo de especialistas y tecnología que puedes conocer. Del Valle Sur, CDMX.",images:[{url:"/og-youdent.png",width:1200,height:630,alt:"Equipo de YouDent en su consultorio de Del Valle Sur"}]},
+  twitter: {card:"summary_large_image",title:"YouDent | Odontología integral en Del Valle Sur",images:["/og-youdent.png"]},
+  applicationName: clinic.name,
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      {url:"/favicon.ico?v=youdent-20261112",type:"image/x-icon",sizes:"16x16 32x32 48x48 64x64"},
+      {url:"/icons/favicon-32.png?v=youdent-20261112",type:"image/png",sizes:"32x32"},
+      {url:"/favicon.svg?v=youdent-20261112",type:"image/svg+xml",sizes:"any"},
+    ],
+    shortcut: "/favicon.ico?v=youdent-20261112",
+    apple: [{url:"/apple-touch-icon.png?v=youdent-20261112",type:"image/png",sizes:"180x180"}],
   },
+  robots: production ? {index:true,follow:true} : {index:false,follow:false},
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="es">
-      <head>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-X8S6RBBDXB"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-X8S6RBBDXB');
-          `}
-        </Script>
-
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '4311418345784316');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-
-        {/* Meta Pixel noscript fallback */}
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=4311418345784316&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-      </head>
-
-      <body>{children}</body>
-    </html>
-  );
+export default function RootLayout({children}:{children:React.ReactNode}) {
+  return <html lang="es-MX" className={`${sans.variable} ${editorial.variable} ${warmEditorial.variable}`}><body>{children}<Analytics/></body></html>;
 }

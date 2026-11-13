@@ -1,0 +1,198 @@
+/* Desktop density calibrated against native Chrome 67% (factor 2/3).
+   These are layout and typography dimensions, not a page transform.
+   Tablet and mobile retain their existing, independently readable layouts. */
+@media (min-width:1100px) {
+  :root {
+    --desktop-content:960px;
+    --desktop-body:14px;
+    --desktop-ui:12px;
+    --desktop-caption:11px;
+    --desktop-section:73.333px;
+    --desktop-control:44px;
+  }
+  html { scroll-padding-top:80px; }
+  body { font-size:var(--desktop-body); }
+  .wrap { width:min(var(--desktop-content),calc(100% - 93.333px)); }
+  .site-nav { height:64px;gap:23px; }
+  .brand-logo { width:128px; }
+  .desktop-nav { gap:20px;font-size:var(--desktop-ui); }
+  .desktop-nav a { padding-block:12px; }
+  .site-nav .button { min-height:var(--desktop-control);font-size:12px;padding:9px 16px;gap:13px; }
+  .site-nav .button svg { width:16px;height:16px; }
+  .button { min-height:var(--desktop-control);font-size:12px;padding:10px 17px;gap:12px; }
+  .button-whatsapp { width:18px;height:18px; }
+  .whatsapp-float { width:44px;height:44px;right:19px;bottom:19px; }
+  .whatsapp-float>svg { width:26px;height:26px; }
+  .float-tooltip { font-size:12px;right:54px; }
+
+  .site-flow::before { height:113.333px; }
+  .site-flow .section { padding-block:var(--desktop-section); }
+  .site-flow h2 { font-size:clamp(32px,4.5vw,46.667px); }
+  .site-flow .editorial-heading { font-size:clamp(36px,5.5vw,56px); }
+  .site-flow .eyebrow { font-size:var(--desktop-ui);margin-bottom:17px; }
+  .site-flow .section-intro { margin-bottom:40px; }
+  .site-flow .section-intro>p,.site-flow .section-intro>div>p:not(.eyebrow) { font-size:var(--desktop-body);max-width:287px;line-height:1.8; }
+  .site-flow .section-intro .text-link { margin-top:12px; }
+  .site-flow .text-link { gap:12px;font-size:var(--desktop-ui);min-height:var(--desktop-control); }
+  .site-flow .text-link>svg { width:15px;height:15px; }
+  .site-flow .button-glass { min-height:var(--desktop-control);padding:9px 12px 9px 18px;gap:15px;font-size:12px;backdrop-filter:blur(9px); }
+  .site-flow .button-glass>svg:last-child { width:25px;height:25px;padding:5px; }
+  .site-flow .flow-arrival { padding-top:57px; }
+  .site-flow .practical-strip { min-height:80px;padding-block:15px;gap:17px; }
+  .site-flow .practical-place,.site-flow .practical-appointment { gap:10px; }
+  .site-flow .practical-place>svg,.site-flow .practical-appointment>svg { width:18px;height:18px; }
+  .site-flow .practical-strip strong { font-size:13px; }
+  .site-flow .practical-strip p span { font-size:var(--desktop-caption); }
+  .site-flow .practical-strip .practical-route { font-size:13px;gap:13px; }
+  .site-flow .practical-route svg { width:17px;height:17px; }
+
+  .site-flow .treatments-section { padding-top:67px;padding-bottom:53px; }
+  .site-flow .treatment-tabs { gap:15px;margin-bottom:25px; }
+  .site-flow .treatment-tabs button { font-size:12px;gap:7px;min-height:62px;padding:12px 0 14px; }
+  .site-flow .treatment-tabs .treatment-number { font-size:var(--desktop-caption); }
+  .site-flow .treatment-panel { min-height:400px; }
+  .site-flow .treatment-copy { padding:17px 0; }
+  .site-flow .treatment-copy .eyebrow { font-size:var(--desktop-ui);margin-bottom:13px; }
+  .site-flow .treatment-copy h3 { font-size:clamp(25px,3vw,29.333px);margin-bottom:15px; }
+  .site-flow .treatment-copy>p:not(.eyebrow):not(.specialist-line) { font-size:var(--desktop-body);line-height:1.8; }
+  .site-flow .expectation { margin-top:15px;gap:8px; }
+  .site-flow .expectation>svg { width:12px; }
+  .site-flow .expectation h4 { font-size:13px;margin-bottom:4px; }
+  .site-flow .expectation p { font-size:13px;line-height:1.75; }
+  .site-flow .specialist-line { margin-top:16px;font-size:var(--desktop-caption); }
+  .site-flow .treatment-copy>.button { margin-top:18px; }
+  .site-flow .treatment-image { min-height:307px; }
+  .site-flow .treatment-image figcaption { padding:8px 0;font-size:var(--desktop-caption); }
+  .site-flow .procedure-figure figcaption { gap:10px;font-size:var(--desktop-caption);padding:3px 8px 10px; }
+  .site-flow .procedure-figure figcaption a { min-height:30px;gap:5px; }
+  .site-flow .procedure-navigation { gap:17px;margin:5px 0 13px;padding-inline:8px; }
+  .site-flow .procedure-navigation button { padding:9px 0;gap:6px;font-size:12px;min-height:44px; }
+  .site-flow .procedure-navigation button span { font-size:var(--desktop-caption); }
+  .site-flow .procedure-explanation { padding-inline:8px;min-height:105px; }
+  .site-flow .procedure-explanation h4 { font-size:17px;margin-bottom:6px; }
+  .site-flow .procedure-explanation p { font-size:13px;line-height:1.75;max-width:387px; }
+  .site-flow .procedure-foot { padding:6px 8px 0;gap:9px;font-size:var(--desktop-caption); }
+  .site-flow .sequence-play { gap:6px;font-size:11px;min-height:36px; }
+
+  .site-flow .visit-section { padding:53px 0 93px; }
+  .site-flow .visit-photo { height:440px; }
+  .site-flow .visit-photo figcaption { left:17px;bottom:5px;font-size:11px; }
+  .site-flow .visit-copy .section-description { font-size:var(--desktop-body);max-width:287px;margin-top:17px;line-height:1.8; }
+  .site-flow .visit-steps { margin-top:19px; }
+  .site-flow .visit-steps li { padding:13px 0;gap:15px; }
+  .site-flow .visit-steps li>span { font-size:11px; }
+  .site-flow .visit-steps h3 { font-size:15px; }
+  .site-flow .visit-steps p { font-size:12px;margin-top:3px; }
+  .site-flow .visit-copy>.button { margin-top:15px; }
+
+  .site-flow .scanner-section { padding:83px 0 93px;margin-top:7px; }
+  .site-flow .scanner-section::before { inset:-80px 0; }
+  .site-flow .scanner-heading { max-width:647px; }
+  .site-flow .scanner-heading h2 { max-width:647px;font-size:clamp(40px,5.8vw,58.667px); }
+  .site-flow .scanner-heading .scanner-intro { max-width:380px;font-size:var(--desktop-body);margin-top:19px; }
+  .site-flow .scanner-theatre { min-height:510px;margin-top:-67px; }
+  .site-flow .scanner-ambient { inset:-37px -5vw -20px;filter:blur(19px); }
+  .site-flow .scanner-theatre .scanner-detail { padding:157px 0 47px;max-width:307px;width:36%;min-height:0; }
+  .site-flow .scanner-detail .scanner-scene-label { font-size:11px;margin-bottom:15px; }
+  .site-flow .scanner-theatre .scanner-detail h3 { max-width:250px;font-size:21px;line-height:1.25; }
+  .site-flow .scanner-theatre .scanner-detail>p:not(.scanner-scene-label) { font-size:13px;line-height:1.75;margin-top:15px; }
+  .site-flow .scanner-theatre .scanner-detail .text-link { margin-top:15px; }
+  .site-flow .scanner-theatre .scanner-media { inset:-30px 0 0 43%; }
+  .site-flow .scanner-theatre .scanner-stage { max-height:467px;max-width:400px; }
+  .site-flow .scanner-theatre .scanner-media>figcaption { max-width:400px;font-size:11px;margin-top:11px; }
+  .site-flow .scanner-timeline { gap:30px;margin-top:14px; }
+  .site-flow .scanner-timeline button { grid-template-columns:19px minmax(0,1fr);gap:5px 7px;padding:13px 0 16px;min-height:70px; }
+  .site-flow .scanner-timeline .scan-number { font-size:11px;padding-top:3px; }
+  .site-flow .scanner-timeline .scan-step-title { font-size:16px; }
+  .site-flow .scanner-timeline .scan-step-description { font-size:11px; }
+  .site-flow .video-play { bottom:27px;min-height:44px;gap:9px;font-size:12px;padding:7px 13px 7px 7px;backdrop-filter:blur(9px); }
+  .site-flow .video-play>span { width:28px;height:28px; }
+  .site-flow .video-play svg { width:16px;height:16px; }
+
+  .site-flow .team-section { padding-top:100px;padding-bottom:63px; }
+  .site-flow .team-section::before { bottom:-113px; }
+  .site-flow .team-grid { gap:18px; }
+  .site-flow .team-member:nth-child(even) { margin-top:29px; }
+  .site-flow .doctor-prefix { font-size:11px;margin-top:9px; }
+  .site-flow .team-member h3 { font-size:16px; }
+  .site-flow .doctor-role { font-size:12px;min-height:34px;margin-top:4px; }
+  .site-flow .doctor-contact { gap:7px;font-size:11px;min-height:36px;margin-top:3px; }
+  .site-flow .doctor-contact svg { width:13px;height:13px; }
+
+  .site-flow .consultorio-section { padding:60px 0 67px; }
+  .site-flow .gallery-image-field { height:433.333px; }
+  .site-flow .gallery-scene>figcaption { font-size:11px;max-width:333px;margin:8px 7px 0; }
+  .site-flow .gallery-story h2 { font-size:clamp(36px,4.9vw,49.333px);max-width:380px; }
+  .site-flow .gallery-tabs { margin-top:20px; }
+  .site-flow .gallery-tabs button { gap:12px;min-height:44px;font-size:12px; }
+  .site-flow .gallery-tabs button>span:first-child { font-size:11px; }
+  .site-flow .gallery-dot { width:4px;height:4px; }
+  .site-flow .gallery-detail { margin-top:17px;min-height:110px; }
+  .site-flow .gallery-detail h3 { font-size:17px; }
+  .site-flow .gallery-detail p { font-size:13px;margin-top:8px;max-width:300px;line-height:1.75; }
+
+  .site-flow .case-section { padding-top:17px;padding-bottom:60px; }
+  .site-flow .clinical-toggle { padding:25px 0;gap:17px; }
+  .site-flow .clinical-toggle .eyebrow { font-size:11px;margin-bottom:9px; }
+  .site-flow .clinical-toggle strong { font-size:clamp(24px,3vw,28px); }
+  .site-flow .clinical-warning { font-size:12px;margin-top:8px; }
+  .site-flow .clinical-content { padding-block:28px; }
+  .site-flow .case-copy h3,.site-flow .clinical-walkthrough h3 { font-size:23px; }
+  .site-flow .case-copy p { font-size:14px;margin-top:15px;line-height:1.8; }
+  .site-flow .case-copy .small-note { font-size:12px; }
+  .site-flow .compare-control { font-size:12px; }
+  .site-flow .compare-metadata { font-size:11px;padding-top:8px; }
+  .site-flow .clinical-walkthrough { padding-top:20px;margin-top:10px; }
+  .site-flow .clinical-walkthrough>div>p:not(.eyebrow) { font-size:14px;margin-top:13px;line-height:1.8; }
+  .site-flow .case-stage-tabs { gap:10px;margin-bottom:16px; }
+  .site-flow .case-stage-tabs button { gap:5px;padding:7px 0;min-height:50px;font-size:11px; }
+  .site-flow .case-stage-tabs button span { font-size:11px; }
+  .site-flow .case-stage-figure>div { max-height:367px; }
+  .site-flow .case-stage-figure figcaption { font-size:11px;padding-top:9px; }
+
+  .site-flow .reviews-section { padding:53px 0 73px; }
+  .site-flow .reviews-heading { gap:30px;margin-bottom:27px; }
+  .site-flow .reviews-heading h2 { max-width:427px;font-size:clamp(32px,4vw,40.667px); }
+  .site-flow .review-score { gap:13px; }
+  .site-flow .review-score>span { font-size:54.667px; }
+  .site-flow .review-score .stars { gap:2px; }
+  .site-flow .review-score .stars svg { width:12px;height:12px; }
+  .site-flow .review-score p { font-size:12px;margin-top:4px; }
+  .site-flow .review-score>svg { width:17px;height:17px;margin-left:5px; }
+  .site-flow .reviews-window { --review-speed:16;padding-block:23px 17px; }
+  .site-flow .moving-review { width:347px;padding:0 37px 0 21px; }
+  .site-flow .moving-review blockquote { font-size:23px;min-height:125px; }
+  .site-flow .moving-review figcaption { gap:3px;font-size:11px;padding-top:14px; }
+  .site-flow .moving-review figcaption strong { font-size:12px; }
+  .site-flow .reviews-controls { gap:17px;margin-top:10px;margin-bottom:11px; }
+  .site-flow .reviews-controls p { font-size:11px; }
+  .site-flow .reviews-controls button { width:40px;height:44px; }
+
+  .site-flow .location-section { padding-top:47px;padding-bottom:87px; }
+  .site-flow .location-section .editorial-heading { font-size:clamp(44px,6.7vw,65.333px);max-width:400px; }
+  .site-flow .location-section address { font-size:13px;margin-top:19px; }
+  .site-flow .location-section address strong { font-size:14px; }
+  .site-flow .opening-hours { gap:9px;margin-top:18px; }
+  .site-flow .opening-hours p { font-size:12px; }
+  .site-flow .opening-hours small { font-size:11px; }
+  .site-flow .opening-hours svg { width:16px;height:16px; }
+  .site-flow .location-actions { margin-top:19px;gap:5px; }
+  .site-flow .map-scene-heading { gap:13px;padding-block:6px 12px;font-size:12px; }
+  .site-flow .map-scene-heading>a { font-size:12px;gap:8px;min-height:44px; }
+  .site-flow .location-map-live { height:380px; }
+  .site-flow .location-map-scene>figcaption { gap:10px;font-size:11px;padding-top:11px; }
+
+  .site-flow .closing-section { min-height:433px;padding:93px 0 80px; }
+  .site-flow .closing-grid>div,.site-flow .closing-grid h2 { max-width:467px; }
+  .site-flow .closing-grid h2 { font-size:clamp(40px,5.7vw,56px); }
+  .site-flow .closing-grid>div>p:not(.eyebrow) { font-size:14px;max-width:287px;margin-top:20px; }
+  .site-flow .closing-grid .button { margin-top:20px; }
+  .site-flow .closing-grid small { max-width:300px;font-size:11px;margin-top:13px; }
+  .site-footer.campaign-footer { padding:39px 0 17px; }
+  .campaign-footer .footer-top { gap:37px; }
+  .campaign-footer .footer-top>p { font-size:12px; }
+  .campaign-footer .footer-links { font-size:12px;gap:4px; }
+  .campaign-footer .footer-logo { width:136px; }
+  .campaign-footer .footer-bottom { margin-top:27px;padding-top:15px;font-size:11px; }
+  .campaign-footer .footer-bottom small { font-size:11px; }
+}

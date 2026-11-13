@@ -1,0 +1,17 @@
+{
+  "css": "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Fraunces:ital,wght@1,100..900&display=swap",
+  "files": [
+    {
+      "family": "Manrope",
+      "file": "Manrope-latin.woff2",
+      "bytes": 24532,
+      "source": "https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggexSg.woff2"
+    },
+    {
+      "family": "Fraunces",
+      "file": "Fraunces-Italic-latin.woff2",
+      "bytes": 45656,
+      "source": "https://fonts.gstatic.com/s/fraunces/v38/6NUs8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChJdt9vIVYX9G37lvd9mv0iQg.woff2"
+    }
+  ]
+}
